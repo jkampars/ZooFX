@@ -5,11 +5,10 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
- 
-<AnchorPane prefHeight="300.0" prefWidth="300.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/10.0.1">
+<AnchorPane prefHeight="300.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.LoginController">
    <children> 
-      <Button fx:id="butLogin" layoutX="121.0" layoutY="188.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="58.0" text="Log in" />
-      <TextField fx:id="txtUser" layoutX="62.0" layoutY="93.0" prefHeight="34.0" prefWidth="177.0" promptText="Username" />
-      <PasswordField fx:id="txtPass" layoutX="62.0" layoutY="141.0" prefHeight="34.0" prefWidth="177.0" promptText="Password" />
+      <Button fx:id="butLogin" layoutX="121.0" layoutY="188.0" maxHeight="34.0" maxWidth="58.0" minHeight="34.0" minWidth="58.0" mnemonicParsing="false" onAction="#Login" prefHeight="34.0" prefWidth="58.0" text="Log in" AnchorPane.leftAnchor="121.0" AnchorPane.rightAnchor="121.0" />
+      <TextField fx:id="txtUser" layoutX="62.0" layoutY="93.0" maxHeight="34.0" maxWidth="177.0" minHeight="34.0" minWidth="177.0" prefHeight="34.0" prefWidth="177.0" promptText="Username" AnchorPane.leftAnchor="62.0" AnchorPane.rightAnchor="62.0" />
+      <PasswordField fx:id="txtPass" layoutX="62.0" layoutY="141.0" maxHeight="34.0" maxWidth="177.0" minHeight="34.0" minWidth="177.0" prefHeight="34.0" prefWidth="177.0" promptText="Password" AnchorPane.leftAnchor="62.0" AnchorPane.rightAnchor="62.0" />
    </children>
 </AnchorPane>
