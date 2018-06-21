@@ -61,17 +61,12 @@ public class AnimalsController {
 		stage.setScene(scene);
 	}
 	
-<<<<<<< HEAD
-	public void Home(ActionEvent event) {
-			
-=======
 	public void Home(ActionEvent event) throws IOException {
 		FXMLLoader loader =  new FXMLLoader(getClass().getResource("/Main.fxml"));// create and load() view
 		loader.load();
 		Stage stage = (Stage) butHome.getScene().getWindow();
 		Scene scene = new Scene(loader.getRoot());
 		stage.setScene(scene);
->>>>>>> branch 'master' of https://github.com/jkampars/ZooFX.git
 	}
 	
 	public void AddAnimal(ActionEvent event) throws IOException {
