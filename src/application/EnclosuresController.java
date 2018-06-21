@@ -4,6 +4,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
+import javafx.scene.text.Text;
 
 public class EnclosuresController {
 	
@@ -27,6 +28,18 @@ public class EnclosuresController {
 	
 	@FXML  
 	private Button butRemoveAnimal;
+	
+	@FXML  
+	private Text txtName;
+	
+	@FXML  
+	private Text txtType;
+	
+	@FXML  
+	private Text txtCapacity;
+	
+	@FXML  
+	private Text txtID;
 	
 	@FXML  
 	private ListView listEnclosures;
