@@ -1,14 +1,10 @@
 package application;
 
-import java.io.IOException;
-
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
-import javafx.stage.Stage;
+import javafx.scene.text.Text;
 
 public class EnclosuresController {
 	
@@ -34,6 +30,18 @@ public class EnclosuresController {
 	private Button butRemoveAnimal;
 	
 	@FXML  
+	private Text txtName;
+	
+	@FXML  
+	private Text txtType;
+	
+	@FXML  
+	private Text txtCapacity;
+	
+	@FXML  
+	private Text txtID;
+	
+	@FXML  
 	private ListView listEnclosures;
 	
 	@FXML  
@@ -47,28 +55,16 @@ public class EnclosuresController {
 		
 	}
 	
-	public void Logout(ActionEvent event) throws IOException {
-		FXMLLoader loader =  new FXMLLoader(getClass().getResource("/Login.fxml"));// create and load() view
-		loader.load();
-		Stage stage = (Stage) butLogout.getScene().getWindow();
-		Scene scene = new Scene(loader.getRoot());
-		stage.setScene(scene);
+	public void Logout(ActionEvent event) {
+		
 	}
 	
-	public void Home(ActionEvent event) throws IOException {
-		FXMLLoader loader =  new FXMLLoader(getClass().getResource("/Main.fxml"));// create and load() view
-		loader.load();
-		Stage stage = (Stage) butHome.getScene().getWindow();
-		Scene scene = new Scene(loader.getRoot());
-		stage.setScene(scene);
+	public void Home(ActionEvent event) {
+			
 	}
 	
-	public void AddEnclosure(ActionEvent event) throws IOException {
-		FXMLLoader loader =  new FXMLLoader(getClass().getResource("/AddEnclosure.fxml"));// create and load() view
-		loader.load();
-		Stage stage = (Stage) butAddEnclosure.getScene().getWindow();
-		Scene scene = new Scene(loader.getRoot());
-		stage.setScene(scene);
+	public void AddEnclosure(ActionEvent event) {
+		
 	}
 	
 	public void RemoveEnclosure(ActionEvent event) {

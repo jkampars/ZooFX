@@ -12,7 +12,7 @@
       <AnchorPane layoutX="10.0" layoutY="10.0" prefHeight="500.0" prefWidth="700.0">
          <children>
             <AnchorPane layoutX="10.0" layoutY="10.0" prefHeight="500.0" prefWidth="700.0">
-               <children>
+               <children> 
                   <Button fx:id="butLogout" layoutX="569.0" layoutY="56.0" mnemonicParsing="false" onAction="#Logout" prefHeight="25.0" prefWidth="90.0" text="Log out" />
                   <Button fx:id="butAccept" layoutX="569.0" layoutY="170.0" mnemonicParsing="false" onAction="#Accept" prefHeight="25.0" prefWidth="90.0" text="Accept" />
                   <Button fx:id="butCancel" layoutX="569.0" layoutY="212.0" mnemonicParsing="false" onAction="#Cancel" prefHeight="25.0" prefWidth="90.0" text="Cancel" />

@@ -77,11 +77,7 @@ public class EditAnimalController {
 		
 	}
 	
-	public void Cancel(ActionEvent event) throws IOException {
-		FXMLLoader loader =  new FXMLLoader(getClass().getResource("/Animals.fxml"));// create and load() view
-		loader.load();
-		Stage stage = (Stage) butCancel.getScene().getWindow();
-		Scene scene = new Scene(loader.getRoot());
-		stage.setScene(scene);
+	public void Cancel(ActionEvent event) {
+		
 	}
 }

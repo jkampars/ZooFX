@@ -18,7 +18,7 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import model.UserType;
 
-public class LoginController extends Main {
+public class LoginController extends Main implements Initializable{
 	@FXML
 	private TextField txtUser; 
 		
@@ -59,4 +59,16 @@ public class LoginController extends Main {
 		}
 	}
 
+	@Override
+	public void initialize(URL location, ResourceBundle resources) {
+		// TODO Auto-generated method stub
+		butLogin.setOnAction(event -> {
+			try {
+				loginToUser(event);
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		});
+	}
 }
