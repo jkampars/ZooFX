@@ -1,18 +1,24 @@
 package application;
 
 import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import model.Enclosure;
 
-public class EnclosuresController {
+public class EnclosuresController extends Main implements Initializable{
 	
 	@FXML  
 	private Button butLogout;
@@ -53,20 +59,28 @@ public class EnclosuresController {
 	@FXML  
 	private ListView listAnimals;
 	
-	public void ShowAnimals(MouseEvent event) {
-			
+	public void ShowEnclosures(MouseEvent event) {
+
 	}
 	
 	public void SelectAnimal(MouseEvent event) {
 		
 	}
 	
-	public void Logout(ActionEvent event) {
-		
+	public void Logout(ActionEvent event) throws IOException {
+		FXMLLoader loader =  new FXMLLoader(getClass().getResource("/Login.fxml"));// create and load() view
+		loader.load();
+		Stage stage = (Stage) butLogout.getScene().getWindow();
+		Scene scene = new Scene(loader.getRoot());
+		stage.setScene(scene);
 	}
 	
-	public void Home(ActionEvent event) {
-			
+	public void Home(ActionEvent event) throws IOException {
+		FXMLLoader loader =  new FXMLLoader(getClass().getResource("/Main.fxml"));// create and load() view
+		loader.load();
+		Stage stage = (Stage) butLogout.getScene().getWindow();
+		Scene scene = new Scene(loader.getRoot());
+		stage.setScene(scene);
 	}
 	
 	public void AddEnclosure(ActionEvent event) throws IOException {
@@ -91,5 +105,13 @@ public class EnclosuresController {
 	
 	public void RemoveAnimal(ActionEvent event) {
 		
+	}
+
+	@Override
+	public void initialize(URL arg0, ResourceBundle arg1) {
+		// TODO Auto-generated method stub
+		///listEnclosures.setItems((ObservableList) enclosures);
+		ObservableList<Enclosure> obslist = FXCollections.observableArrayList(enclosures);
+		listEnclosures.setItems(obslist);
 	}
 }

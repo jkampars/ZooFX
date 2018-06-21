@@ -78,6 +78,9 @@ public class Enclosure {
 		setType(type);
 	}
 	
+	public String toString() {
+		return name;
+	}
 }
 
 

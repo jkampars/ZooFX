@@ -39,8 +39,12 @@ public class AddEnclosureController extends Main{
 	public void initialize() {
 		selectType.getItems().addAll(AnimalType.values());
 	}
-	public void Logout(ActionEvent event) {
-		
+	public void Logout(ActionEvent event) throws IOException {
+		FXMLLoader loader =  new FXMLLoader(getClass().getResource("/Login.fxml"));// create and load() view
+		loader.load();
+		Stage stage = (Stage) butLogout.getScene().getWindow();
+		Scene scene = new Scene(loader.getRoot());
+		stage.setScene(scene);
 	}
 	
 	public void Accept(ActionEvent event) throws IOException {
@@ -65,8 +69,12 @@ public class AddEnclosureController extends Main{
 		
 	}
 	
-	public void Cancel(ActionEvent event) {
-		
+	public void Cancel(ActionEvent event) throws IOException {
+		FXMLLoader loader =  new FXMLLoader(getClass().getResource("/Enclosures.fxml"));// create and load() view
+		loader.load();
+		Stage stage = (Stage) butAccept.getScene().getWindow();
+		Scene scene = new Scene(loader.getRoot());
+		stage.setScene(scene);
 	}
 	
 	public void Select(MouseEvent event) {
