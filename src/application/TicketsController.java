@@ -37,13 +37,12 @@ public class TicketsController implements Initializable{
 			
 	}
 	
-	public void selectTicket(ActionEvent event) throws IOException {
+	public void selectPurchase(ActionEvent event) throws IOException {
 		
 	}
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		// TODO Auto-generated method stub
 		
 	}
 }

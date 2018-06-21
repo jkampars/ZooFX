@@ -12,10 +12,10 @@ public class Purchase {
 	
 	public Purchase(ArrayList<Ticket> input) {
 		for (int i=0;i<input.size();i++) {
+			boolean ticketExists = false;
 			sum = sum + input.get(i).getPrice();
-			for (Ticket ticket : input) {
-				
-			}
+			
 		}
 	}
+	
 }
