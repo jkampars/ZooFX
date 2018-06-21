@@ -54,7 +54,7 @@ public class AnimalsController {
 	
 	public void Home(ActionEvent event) {
 			
-		}
+	}
 	
 	public void AddAnimal(ActionEvent event) {
 		
