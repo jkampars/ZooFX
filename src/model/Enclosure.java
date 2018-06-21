@@ -8,12 +8,9 @@ public class Enclosure {
 	private int MAX_CAPACITY;
 	private int current_capacity;
 	private List<Animal> animals = new ArrayList<>();
-	public int getId() {
-		return id;
-	}
-	public void setId(int id) {
-		this.id = id;
-	}
+	public static int counter = 1000;
+	private String name;
+	private AnimalType type;
 	public int getMAX_CAPACITY() {
 		return MAX_CAPACITY;
 	}
@@ -26,21 +23,59 @@ public class Enclosure {
 	public void setCurrent_capacity(int current_capacity) {
 		this.current_capacity = current_capacity;
 	}
-	public Enclosure() {
-		setId(0);
-		setMAX_CAPACITY(0);
-		setCurrent_capacity(0);
+	public List<Animal> getAnimals() {
+		return animals;
 	}
-	public Enclosure(int id, int mAX_CAPACITY, int current_capacity) {
-		setId(id);
+	public void setAnimals(List<Animal> animals) {
+		this.animals = animals;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String _name) {
+		if(checkName(_name)) {
+			_name = name;
+		}
+		else {
+			System.out.println("Invalid name");
+		}
+	}
+	public AnimalType getType() {
+		return type;
+	}
+	public void setType(AnimalType type) {
+		this.type = type;
+	}
+	public int getId() {
+		return id;
+	}
+	public boolean checkName(String name) {
+		if (name.matches("[a-zA-Z0-9]*")) 
+			return true;
+		else 
+			return false;
+	}
+	public void addAnimal(Animal animal) {
+		animals.add(animal);
+	}
+	public void removeAnimal(int index) {
+		animals.remove(index);
+	}
+	public void Enclosure() {
+		counter++;
+		id = counter + 1;
+		name = "";
+		MAX_CAPACITY = 0;
+		current_capacity = 0;
+		type = AnimalType.NONE;
+	}
+	public Enclosure(int mAX_CAPACITY, int current_capacity, String name, AnimalType type) {
+		counter++;
+		id = counter + 1;
 		setMAX_CAPACITY(mAX_CAPACITY);
 		setCurrent_capacity(current_capacity);
-	}
-	public void addAnimal(Animal _animal) {
-		animals.add(_animal);
-	}
-	public void removeAnimal(int whichAnimal) {
-		animals.remove(whichAnimal);
+		setName(name);
+		setType(type);
 	}
 	
 }
