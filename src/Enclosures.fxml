@@ -1,8 +1,45 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.SplitPane?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane xmlns:fx="http://javafx.com/fxml/1">
-	<!-- TODO Add Nodes -->
+<AnchorPane xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.EnclosuresController">
+   <children>
+      <AnchorPane layoutX="10.0" layoutY="10.0" prefHeight="500.0" prefWidth="700.0">
+         <children>
+            <Button fx:id="butLogout" layoutX="569.0" layoutY="56.0" mnemonicParsing="false" onAction="#Logout" prefHeight="25.0" prefWidth="90.0" text="Log out" />
+            <Button fx:id="butHome" layoutX="569.0" layoutY="98.0" mnemonicParsing="false" onAction="#Home" prefHeight="25.0" prefWidth="90.0" text="Home" />
+            <Button fx:id="butAddEnclosure" layoutX="555.0" layoutY="171.0" mnemonicParsing="false" onAction="#AddEnclosure" prefHeight="25.0" prefWidth="118.0" text="Add enclosure" />
+            <SplitPane layoutX="39.0" layoutY="38.0" prefHeight="425.0" prefWidth="498.0">
+               <items>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="309.0" prefWidth="190.0" SplitPane.resizableWithParent="false">
+                     <children>
+                        <ListView fx:id="listAnimals" layoutY="58.0" onMouseClicked="#SelectAnimal" prefHeight="423.0" prefWidth="199.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                        <SplitPane dividerPositions="0.4959514170040486" layoutX="162.0" layoutY="132.0" prefHeight="423.0" prefWidth="496.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                          <items>
+                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+                                 <children>
+                                    <ListView fx:id="listEnclosures" layoutX="15.0" layoutY="37.0" onMouseClicked="#ShowAnimals" prefHeight="421.0" prefWidth="229.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                 </children>
+                              </AnchorPane>
+                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+                                 <children>
+                                    <ListView fx:id="listAnimals" layoutX="6.0" onMouseClicked="#SelectAnimal" prefHeight="421.0" prefWidth="259.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="6.0" AnchorPane.rightAnchor="-6.0" AnchorPane.topAnchor="0.0" />
+                                 </children>
+                              </AnchorPane>
+                          </items>
+                        </SplitPane>
+                     </children>
+                  </AnchorPane>
+               </items>
+            </SplitPane>
+            <Button fx:id="butRemoveEnclosure" layoutX="555.0" layoutY="213.0" mnemonicParsing="false" onAction="#RemoveEnclosure" prefHeight="25.0" prefWidth="118.0" text="Remove enclosure" />
+            <Button fx:id="butMoveAnimal" layoutX="555.0" layoutY="325.0" mnemonicParsing="false" onAction="#MoveAnimal" prefHeight="25.0" prefWidth="118.0" text="Move animal" />
+            <Button fx:id="butRemoveAnimal" layoutX="555.0" layoutY="370.0" mnemonicParsing="false" onAction="#RemoveAnimal" prefHeight="25.0" prefWidth="118.0" text="Remove animal" />
+            <Button fx:id="butEditEnclosure" layoutX="555.0" layoutY="251.0" mnemonicParsing="false" onAction="#EditEnclosure" prefHeight="25.0" prefWidth="118.0" text="Edit enclosure" />
+         </children>
+      </AnchorPane>
+   </children>
 </AnchorPane>
-
