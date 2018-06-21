@@ -6,6 +6,7 @@ public class Animal {
 	private AnimalType type;
 	public int getID() {
 		return ID;
+	
 	}
 	public void setID(int iD) {
 		ID = iD;

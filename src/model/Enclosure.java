@@ -42,6 +42,7 @@ public class Enclosure {
 	public void removeAnimal(int whichAnimal) {
 		animals.remove(whichAnimal);
 	}
+	
 }
 
 
