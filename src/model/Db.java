@@ -12,7 +12,7 @@ public class Db {
 	public static void createConnection() throws ClassNotFoundException, SQLException {
 		//Ielade SQL un izveido connection
 		Class.forName("org.sqlite.JDBC");
-		con = DriverManager.getConnection("jdbc:sqlite:IIHF16.db");
+		con = DriverManager.getConnection("jdbc:sqlite:ZOO.db");
 		//createStudentsTable();
 		//con.close();
 	}
