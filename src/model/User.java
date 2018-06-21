@@ -4,10 +4,14 @@ public class User {
 	private String username;
 	private String password;
 	private UserType type;
+	private int id;
+	private static int counter = 0;
 	
 	public User() {
 		username="";
 		password="";
+		counter++;
+		id = 1000 + counter;
 		type = UserType.NOUSER;
 	}
 	
@@ -15,6 +19,8 @@ public class User {
 		setUsername(name);
 		setPassword(pass);
 		type = UserType.NOUSER;
+		counter++;
+		id = 1000 + counter;
 	}
 	
 	public boolean checkUsername(String name) {
@@ -62,5 +68,9 @@ public class User {
 	
 	public UserType getUserType() {
 		return type;
+	}
+	
+	public int getId() {
+		return id;
 	}
 }

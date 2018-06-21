@@ -1,5 +1,7 @@
 package application;
 	
+import java.util.ArrayList;
+
 import javafx.application.Application;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -11,6 +13,7 @@ import javafx.scene.layout.BorderPane;
 
 
 public class Main extends Application {
+	public static ArrayList<User> users = new ArrayList();
 	public static User currentUser;
 	@Override
 	public void start(Stage primaryStage) {
@@ -28,6 +31,11 @@ public class Main extends Application {
 	}
 	
 	public static void main(String[] args) {
+		users.add(new User("1","1"));
+		users.add(new User("user","pass"));
+		users.add(new User("admin","123"));
+		users.get(2).setAdmin();
+		users.get(1).setUser();
 		currentUser = new User("login","password");
 		currentUser.setAdmin();
 		launch(args);
