@@ -47,12 +47,20 @@ public class EnclosuresController {
 		
 	}
 	
-	public void Logout(ActionEvent event) {
-		
+	public void Logout(ActionEvent event) throws IOException {
+		FXMLLoader loader =  new FXMLLoader(getClass().getResource("/Login.fxml"));// create and load() view
+		loader.load();
+		Stage stage = (Stage) butLogout.getScene().getWindow();
+		Scene scene = new Scene(loader.getRoot());
+		stage.setScene(scene);
 	}
 	
-	public void Home(ActionEvent event) {
-			
+	public void Home(ActionEvent event) throws IOException {
+		FXMLLoader loader =  new FXMLLoader(getClass().getResource("/Main.fxml"));// create and load() view
+		loader.load();
+		Stage stage = (Stage) butHome.getScene().getWindow();
+		Scene scene = new Scene(loader.getRoot());
+		stage.setScene(scene);
 	}
 	
 	public void AddEnclosure(ActionEvent event) throws IOException {
