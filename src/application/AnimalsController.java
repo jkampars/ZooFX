@@ -10,8 +10,9 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import model.Animal;
 
-public class AnimalsController {
+public class AnimalsController extends Main{
 	
 	@FXML  
 	private Button butLogout;
@@ -86,6 +87,13 @@ public class AnimalsController {
 	}
 	
 	public void Info(ActionEvent event) {
-		
+		Animal animal = (Animal) listAnimals.getSelectionModel().getSelectedItem();
+		if (enclosures.contains(animal)) {
+			txtID.setText(String.valueOf(animal.getID()));
+			txtName.setText(String.valueOf(animal.getName()));  
+			txtSpecie.setText(String.valueOf(animal.getType())); 
+			txtEnclosure.setText(String.valueOf(animal.getName())); 
+			//txtDate.setText(String.valueOf(animal.getName())); 
+		}
 	}
 }
