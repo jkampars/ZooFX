@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+  
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Text?>
+
+
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/10.0.1" fx:controller="application.EditTicketsController">
+   <children>
+      <AnchorPane layoutX="10.0" layoutY="10.0">
+         <children>
+            <AnchorPane layoutX="10.0" layoutY="10.0">
+               <children>
+                  <AnchorPane layoutX="10.0" layoutY="10.0" prefHeight="500.0" prefWidth="700.0">
+                     <children>
+                        <Button fx:id="butLogout" layoutX="569.0" layoutY="56.0" mnemonicParsing="false" onAction="#Logout" prefHeight="25.0" prefWidth="90.0" text="Log out" />
+                        <Button fx:id="butHome" layoutX="569.0" layoutY="98.0" mnemonicParsing="false" onAction="#Home" prefHeight="25.0" prefWidth="90.0" text="Home" />
+                        <Button fx:id="butAccept" layoutX="569.0" layoutY="170.0" mnemonicParsing="false" onAction="#Accept" prefHeight="25.0" prefWidth="90.0" text="Accept" />
+                        <Button fx:id="butCancel" layoutX="569.0" layoutY="213.0" mnemonicParsing="false" onAction="#Cancel" prefHeight="25.0" prefWidth="90.0" text="Cancel" />
+                        <ComboBox fx:id="listTickets" layoutX="53.0" layoutY="125.0" onMouseClicked="#selectTicket" prefWidth="150.0" />
+                        <Button fx:id="butEdit" layoutX="228.0" layoutY="125.0" mnemonicParsing="false" onAction="#Edit" text="Edit price" />
+                        <Button fx:id="butRemove" layoutX="316.0" layoutY="125.0" mnemonicParsing="false" onAction="#Remove" text="Remove" />
+                        <Button fx:id="butAdd" layoutX="375.0" layoutY="226.0" mnemonicParsing="false" onAction="#Add" text="Add" />
+                        <TextField fx:id="txtDescription" layoutX="53.0" layoutY="226.0" />
+                        <TextField fx:id="txtPrice" layoutX="214.0" layoutY="226.0" />
+                        <Text layoutX="53.0" layoutY="115.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tickets:" />
+                        <Text layoutX="53.0" layoutY="218.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Description:" />
+                        <Text layoutX="214.0" layoutY="218.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Price:" />
+                     </children>
+                  </AnchorPane>
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

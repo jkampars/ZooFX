@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ 
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Text?>
+
+
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/10.0.1" fx:controller="application.SellTicketController">
+   <children>
+      <AnchorPane layoutX="10.0" layoutY="10.0">
+         <children>
+            <AnchorPane layoutX="10.0" layoutY="10.0" prefHeight="500.0" prefWidth="700.0">
+               <children>
+                  <Button fx:id="butLogout" layoutX="569.0" layoutY="56.0" mnemonicParsing="false" onAction="#Logout" prefHeight="25.0" prefWidth="90.0" text="Log out" />
+                  <Button fx:id="butHome" layoutX="569.0" layoutY="98.0" mnemonicParsing="false" onAction="#Home" prefHeight="25.0" prefWidth="90.0" text="Home" />
+                  <Button fx:id="butAccept" layoutX="569.0" layoutY="170.0" mnemonicParsing="false" onAction="#Accept" prefHeight="25.0" prefWidth="90.0" text="Accept" />
+                  <Button fx:id="butCancel" layoutX="569.0" layoutY="213.0" mnemonicParsing="false" onAction="#Cancel" prefHeight="25.0" prefWidth="90.0" text="Cancel" />
+                  <Text layoutX="53.0" layoutY="418.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Total price:" />
+                  <Text fx:id="txtPrice" layoutX="123.0" layoutY="418.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
+                  <SplitPane dividerPositions="0.3426724137931034" layoutX="53.0" layoutY="41.0" prefHeight="346.0" prefWidth="466.0">
+                    <items>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" SplitPane.resizableWithParent="false">
+                           <children>
+                              <ListView fx:id="listDescription" layoutX="-44.0" layoutY="30.0" prefHeight="344.0" prefWidth="156.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                           </children>
+                        </AnchorPane>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" SplitPane.resizableWithParent="false">
+                           <children>
+                              <SplitPane dividerPositions="0.5" layoutX="7.0" layoutY="92.0" prefHeight="344.0" prefWidth="302.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                <items>
+                                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+                                       <children>
+                                          <ListView fx:id="listPrice" layoutX="-26.0" layoutY="14.0" prefHeight="342.0" prefWidth="147.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                       </children>
+                                    </AnchorPane>
+                                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+                                       <children>
+                                          <ListView fx:id="listCheckBox" layoutY="71.0" onMouseClicked="#SelectBox" prefHeight="342.0" prefWidth="147.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                       </children>
+                                    </AnchorPane>
+                                </items>
+                              </SplitPane>
+                           </children>
+                        </AnchorPane>
+                    </items>
+                  </SplitPane>
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>
