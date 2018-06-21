@@ -39,7 +39,7 @@
                         </AnchorPane>
                       <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
                            <children>
-                              <ListView fx:id="listTime" layoutX="-50.0" layoutY="-8.0" prefHeight="200.0" prefWidth="200.0" />
+                              <ListView fx:id="listTime" layoutX="-4.0" layoutY="-8.0" prefHeight="152.0" prefWidth="100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
                            </children>
                         </AnchorPane>
                     </items>
@@ -47,6 +47,7 @@
                   <Text layoutX="15.0" layoutY="47.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Name:" />
                   <TextField fx:id="txtName" layoutX="62.0" layoutY="30.0" prefHeight="25.0" prefWidth="161.0" promptText="Name (Can be left empty)" />
                   <ComboBox fx:id="SelectEnclosure" layoutX="71.0" layoutY="63.0" onMouseClicked="#Enclosure" prefWidth="150.0" />
+                  <Button fx:id="butRemove" layoutX="246.0" layoutY="210.0" mnemonicParsing="false" onAction="#Remove" text="Remove" />
                </children>
             </AnchorPane>
          </children>

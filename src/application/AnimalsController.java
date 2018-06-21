@@ -21,6 +21,9 @@ public class AnimalsController {
 	private Button butRemoveAnimal;
 	
 	@FXML  
+	private Button butEditAnimal;
+	
+	@FXML  
 	private ListView listAnimals;
 	
 	@FXML  
@@ -38,6 +41,9 @@ public class AnimalsController {
 	@FXML  
 	private Text txtSpecie;
 	
+	@FXML
+	private Text txtEnclosure;
+	
 	@FXML  
 	private Text txtDate;
 	
@@ -51,6 +57,10 @@ public class AnimalsController {
 		}
 	
 	public void AddAnimal(ActionEvent event) {
+		
+	}
+	
+	public void EditAnimal(ActionEvent event) {
 		
 	}
 	
