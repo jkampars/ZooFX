@@ -9,15 +9,15 @@ import javafx.scene.control.TextField;
 public class LoginController {
 	@FXML
 	private TextField txtUser; 
-	
+		
 	@FXML 
 	private PasswordField txtPass;
-	
+		
 	@FXML  
 	private Button butLogin;
-	
+		
 	
 	public void Login(ActionEvent event) {
-		
+			
 	}
 }
