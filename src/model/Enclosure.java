@@ -17,7 +17,6 @@ public class Enclosure {
 	public int getMAX_CAPACITY() {
 		return MAX_CAPACITY;
 	}
-	//sadsdad 
 	public void setMAX_CAPACITY(int mAX_CAPACITY) {
 		MAX_CAPACITY = mAX_CAPACITY;
 	}
