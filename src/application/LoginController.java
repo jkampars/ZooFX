@@ -40,23 +40,17 @@ public class LoginController extends Main {
 		            alert.show();
 				}
 				else if (users.get(i).getUserType()==UserType.USER) {
-					System.out.println("Success");
-					//Parent root = FXMLLoader.load(getClass().getResource("/Main.fxml"));
 					FXMLLoader loader =  new FXMLLoader(getClass().getResource("/Main.fxml"));// create and load() view
 					loader.load();
 					Stage stage = (Stage) butLogin.getScene().getWindow();
-					//butLogin.getScene().setRoot(loader.getRoot());
 					Scene scene = new Scene(loader.getRoot());
 					stage.setScene(scene);
 					currentUser = users.get(i);
 				}
 				else if (users.get(i).getUserType()==UserType.ADMIN) {
-					System.out.println("Success");
-					//Parent root = FXMLLoader.load(getClass().getResource("/Main.fxml"));
 					FXMLLoader loader =  new FXMLLoader(getClass().getResource("/Main.fxml"));// create and load() view
 					loader.load();
 					Stage stage = (Stage) butLogin.getScene().getWindow();
-					//butLogin.getScene().setRoot(loader.getRoot());
 					Scene scene = new Scene(loader.getRoot());
 					stage.setScene(scene);
 					currentUser = users.get(i);
