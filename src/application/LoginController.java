@@ -15,7 +15,7 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
-public class LoginController extends Main implements Initializable{
+public class LoginController extends Main {
 	@FXML
 	private TextField txtUser; 
 		
@@ -29,7 +29,7 @@ public class LoginController extends Main implements Initializable{
 	public void loginToUser(ActionEvent event) throws IOException {
 		String temp = txtUser.getText();
 		System.out.println(temp+" "+currentUser.getUsername());
-		if (temp==currentUser.getUsername()) {
+		if (temp.equals(currentUser.getUsername())) {
 			System.out.println("Success");
 			//Parent root = FXMLLoader.load(getClass().getResource("/Main.fxml"));
 			FXMLLoader loader =  new FXMLLoader(getClass().getResource("/Main.fxml"));// create and load() view
@@ -41,16 +41,4 @@ public class LoginController extends Main implements Initializable{
 		}
 	}
 
-	@Override
-	public void initialize(URL location, ResourceBundle resources) {
-		// TODO Auto-generated method stub
-		butLogin.setOnAction(event -> {
-			try {
-				loginToUser(event);
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-		});
-	}
 }
