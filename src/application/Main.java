@@ -33,6 +33,7 @@ public class Main extends Application {
 		}
 	}
 	
+	
 	public static void main(String[] args) {
 		users.add(new User("1","1"));
 		users.add(new User("user","pass"));

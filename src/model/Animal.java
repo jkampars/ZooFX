@@ -7,6 +7,7 @@ public class Animal {
 	private String name;
 	private AnimalType type;
 	private ArrayList<Diet> diet = new ArrayList();
+	
 	public int getID() {
 		return ID;
 	
