@@ -1,7 +1,7 @@
 package model;
 
 public enum AnimalType {
-	FISH, BIRD, MAMMAL;
+	FISH, BIRD, MAMMAL, NONE;
 }
 
 
