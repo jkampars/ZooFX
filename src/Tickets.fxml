@@ -1,53 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
- 
+
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
-<?import javafx.scene.control.SplitPane?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.text.Text?>
 
-
-<AnchorPane xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/10.0.1" fx:controller="application.TicketsController">
+<AnchorPane xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.TicketsController">
    <children>
       <AnchorPane layoutX="10.0" layoutY="10.0" prefHeight="500.0" prefWidth="700.0">
          <children>
             <Button fx:id="butLogout" layoutX="569.0" layoutY="56.0" mnemonicParsing="false" onAction="#Logout" prefHeight="25.0" prefWidth="90.0" text="Log out" />
             <Button fx:id="butHome" layoutX="569.0" layoutY="98.0" mnemonicParsing="false" onAction="#Home" prefHeight="25.0" prefWidth="90.0" text="Home" />
-            <Button fx:id="butSellTicket" layoutX="569.0" layoutY="170.0" mnemonicParsing="false" onAction="#SellTicket" prefHeight="25.0" prefWidth="90.0" text="Sell ticket" />
-            <SplitPane dividerPositions="0.40725806451612906" layoutX="39.0" layoutY="38.0" prefHeight="425.0" prefWidth="498.0">
-               <items>
-                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="309.0" prefWidth="190.0" SplitPane.resizableWithParent="false">
-                     <children>
-                        <ListView fx:id="listTickets" layoutY="58.0" onMouseClicked="#selectTicket" prefHeight="423.0" prefWidth="199.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
-                        <SplitPane dividerPositions="0.48223350253807107" layoutY="52.0" prefHeight="423.0" prefWidth="199.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                          <items>
-                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" SplitPane.resizableWithParent="false">
-                                 <children>
-                                    <ListView fx:id="listBillingTicket" layoutX="-86.0" layoutY="41.0" onMouseClicked="#selectTicket" prefHeight="421.0" prefWidth="92.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
-                                 </children>
-                              </AnchorPane>
-                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" SplitPane.resizableWithParent="false">
-                                 <children>
-                                    <ListView fx:id="listBillingDate" layoutX="-50.0" layoutY="14.0" prefHeight="421.0" prefWidth="99.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
-                                 </children>
-                              </AnchorPane>
-                          </items>
-                        </SplitPane>
-                     </children>
-                  </AnchorPane>
-                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="371.0" prefWidth="291.0">
-                     <children>
-                        <Text layoutX="28.0" layoutY="61.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ID" />
-                        <Text layoutX="67.0" layoutY="61.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Description" />
-                        <Text layoutX="205.0" layoutY="61.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Price" />
-                        <ListView fx:id="listID" layoutX="28.0" layoutY="76.0" prefHeight="326.0" prefWidth="26.0" />
-                        <ListView fx:id="listDescription" layoutX="67.0" layoutY="76.0" prefHeight="326.0" prefWidth="126.0" />
-                        <ListView fx:id="listPrice" layoutX="205.0" layoutY="76.0" prefHeight="326.0" prefWidth="40.0" />
-                     </children>
-                  </AnchorPane>
-               </items>
-            </SplitPane>
-            <Button fx:id="butEditTicket" layoutX="569.0" layoutY="213.0" mnemonicParsing="false" onAction="#EditTickets" prefHeight="25.0" prefWidth="90.0" text="Edit tickets" />
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="486.0" prefWidth="555.0">
+               <children>
+                  <Label layoutX="13.0" layoutY="-3.0" text="Purchase history" />
+                  <ListView fx:id="purchaseList" layoutX="13.0" layoutY="29.0" prefHeight="445.0" prefWidth="256.0" />
+                  <Label fx:id="purchaseInfo" layoutX="277.0" layoutY="29.0" onMouseClicked="#selectPurchase" prefHeight="457.0" prefWidth="267.0" text="Purchase info" textAlignment="CENTER" />
+               </children>
+            </AnchorPane>
          </children>
       </AnchorPane>
    </children>

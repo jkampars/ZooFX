@@ -3,6 +3,7 @@ package model;
 public class Ticket {
 	private int id;
 	private String description;
+	private String name;
 	private int price;
 	public static int counter = 1000;
 	public int getId() {
@@ -16,6 +17,12 @@ public class Ticket {
 	}
 	public int getPrice() {
 		return price;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String input) {
+		name = input;
 	}
 	public void setPrice(int price) {
 		if(priceChecker(price)) {
@@ -34,15 +41,17 @@ public class Ticket {
 		}
 	}
 	public Ticket() {
+		name="";
 		counter++;
 		id = counter + 1; 
 		description = "";
 		price = 0;
 	}
-	public Ticket(String description, int price) {
+	public Ticket(String name, String description, int price) {
 		counter++;
 		id = counter + 1;
 		setDescription(description);
 		setPrice(price);
+		setName(name);
 	}
 }
