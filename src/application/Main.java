@@ -14,7 +14,7 @@ import javafx.scene.layout.BorderPane;
 
 public class Main extends Application {
 	public static ArrayList<User> users = new ArrayList();
-	public static User currentUser;
+	public static User currentUser = new User();
 	@Override
 	public void start(Stage primaryStage) {
 		try {
@@ -36,8 +36,6 @@ public class Main extends Application {
 		users.add(new User("admin","123"));
 		users.get(2).setAdmin();
 		users.get(1).setUser();
-		currentUser = new User("login","password");
-		currentUser.setAdmin();
 		launch(args);
 	}
 

@@ -40,20 +40,20 @@ public class LoginController extends Main {
 		            alert.show();
 				}
 				else if (users.get(i).getUserType()==UserType.USER) {
+					currentUser = users.get(i);
 					FXMLLoader loader =  new FXMLLoader(getClass().getResource("/Main.fxml"));// create and load() view
 					loader.load();
 					Stage stage = (Stage) butLogin.getScene().getWindow();
 					Scene scene = new Scene(loader.getRoot());
 					stage.setScene(scene);
-					currentUser = users.get(i);
 				}
 				else if (users.get(i).getUserType()==UserType.ADMIN) {
+					currentUser = users.get(i);
 					FXMLLoader loader =  new FXMLLoader(getClass().getResource("/Main.fxml"));// create and load() view
 					loader.load();
 					Stage stage = (Stage) butLogin.getScene().getWindow();
 					Scene scene = new Scene(loader.getRoot());
 					stage.setScene(scene);
-					currentUser = users.get(i);
 				}
 			}
 		}
