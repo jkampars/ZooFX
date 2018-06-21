@@ -34,7 +34,7 @@ public class Enclosure {
 	}
 	public void setName(String _name) {
 		if(checkName(_name)) {
-			_name = name;
+			name = _name;
 		}
 		else {
 			System.out.println("Invalid name");
@@ -61,7 +61,7 @@ public class Enclosure {
 	public void removeAnimal(int index) {
 		animals.remove(index);
 	}
-	public void Enclosure() {
+	public Enclosure() {
 		counter++;
 		id = counter + 1;
 		name = "";

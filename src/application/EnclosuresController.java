@@ -8,6 +8,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
@@ -52,11 +53,11 @@ public class EnclosuresController {
 	@FXML  
 	private ListView listAnimals;
 	
-	public void ShowAnimals(ActionEvent event) {
+	public void ShowAnimals(MouseEvent event) {
 			
 	}
 	
-	public void SelectAnimal(ActionEvent event) {
+	public void SelectAnimal(MouseEvent event) {
 		
 	}
 	
