@@ -28,8 +28,8 @@ public class LoginController extends Main {
 	@FXML
 	public void loginToUser(ActionEvent event) throws IOException {
 		String temp = txtUser.getText();
-		System.out.println(temp+" "+currentUser.getUsername());
-		if (temp.equals(currentUser.getUsername())) {
+		System.out.println(temp+" "+Main.currentUser.getUsername());
+		if (temp.equals(Main.currentUser.getUsername())) {
 			System.out.println("Success");
 			//Parent root = FXMLLoader.load(getClass().getResource("/Main.fxml"));
 			FXMLLoader loader =  new FXMLLoader(getClass().getResource("/Main.fxml"));// create and load() view

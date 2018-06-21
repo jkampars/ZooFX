@@ -11,7 +11,7 @@ import javafx.scene.layout.BorderPane;
 
 
 public class MainKampis extends Application {
-	public static User currentUser;
+	//public static User currentUser;
 	@Override
 	public void start(Stage primaryStage) {
 		try {
@@ -28,8 +28,8 @@ public class MainKampis extends Application {
 	}
 	
 	public static void main(String[] args) {
-		currentUser = new User("login","password");
-		currentUser.setAdmin();
+		Main.currentUser = new User("login","password");
+		Main.currentUser.setAdmin();
 		launch(args);
 	}
 
