@@ -1,9 +1,12 @@
 package model;
 
+import java.util.ArrayList;
+
 public class Animal {
 	private int ID;
 	private String name;
 	private AnimalType type;
+	private ArrayList<Diet> diet = new ArrayList();
 	public int getID() {
 		return ID;
 	

@@ -7,6 +7,8 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.stage.Stage;
 import model.User;
+import model.Animal;
+import model.Enclosure;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
@@ -15,6 +17,7 @@ import javafx.scene.layout.BorderPane;
 public class Main extends Application {
 	public static ArrayList<User> users = new ArrayList();
 	public static User currentUser = new User();
+	public static ArrayList<Enclosure> enclosures = new ArrayList();
 	@Override
 	public void start(Stage primaryStage) {
 		try {

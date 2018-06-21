@@ -74,8 +74,13 @@ public class AddAnimalController {
 		
 	}
 	
-	public void Accept(ActionEvent event) {
+	public void Accept(ActionEvent event) throws IOException {
 		
+		FXMLLoader loader =  new FXMLLoader(getClass().getResource("/Animals.fxml"));// create and load() view
+		loader.load();
+		Stage stage = (Stage) butAccept.getScene().getWindow();
+		Scene scene = new Scene(loader.getRoot());
+		stage.setScene(scene);
 	}
 	
 	public void Cancel(ActionEvent event) {
