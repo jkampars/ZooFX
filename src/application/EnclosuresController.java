@@ -103,6 +103,7 @@ public class EnclosuresController extends Main implements Initializable{
 		
 	}
 	
+
 	public void RemoveAnimal(ActionEvent event) {
 		
 	}
