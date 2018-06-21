@@ -10,7 +10,6 @@ public class Animal {
 	
 	public int getID() {
 		return ID;
-	
 	}
 	public void setID(int iD) {
 		ID = iD;
