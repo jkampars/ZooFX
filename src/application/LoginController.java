@@ -27,15 +27,13 @@ public class LoginController extends Main implements Initializable{
 		
 	@FXML
 	public void loginToUser(ActionEvent event) throws IOException {
-		String temp = txtUser.getText();
-		System.out.println(temp+" "+currentUser.getUsername());
-		if (temp==currentUser.getUsername()) {
+		String temp = txtUser.getText().trim();
+		System.out.println(temp+" "+currentUser.getUsername().toString());
+		if (temp.equals(currentUser.getUsername())) {
 			System.out.println("Success");
-			//Parent root = FXMLLoader.load(getClass().getResource("/Main.fxml"));
 			FXMLLoader loader =  new FXMLLoader(getClass().getResource("/Main.fxml"));// create and load() view
 			loader.load();
 			Stage stage = (Stage) butLogin.getScene().getWindow();
-			//butLogin.getScene().setRoot(loader.getRoot());
 			Scene scene = new Scene(loader.getRoot());
 			stage.setScene(scene);
 		}
