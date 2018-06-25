@@ -99,16 +99,15 @@ public class AnimalsController extends Main{
 				txtName.setText(String.valueOf(animal.getName()));  
 				txtSpecie.setText(String.valueOf(animal.getType())); 
 				txtEnclosure.setText(String.valueOf(animal.getName())); 
-				//txtDate.setText(String.valueOf(animal.getName())); 
+				txtDate.setText(animal.getDateAdded().toGMTString()); 
 			}
 		}
 	}
 	
-	/*@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		// TODO Auto-generated method stub
 		///listEnclosures.setItems((ObservableList) enclosures);
-		ObservableList<Enclosure> obslist = FXCollections.observableArrayList(enclosures);
+		ObservableList<Animal> obslist = FXCollections.observableArrayList(enclosures);
 		listEnclosures.setItems(obslist);
-	}*/
+	}
 }

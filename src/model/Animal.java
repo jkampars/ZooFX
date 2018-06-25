@@ -54,4 +54,12 @@ public class Animal {
 			return false;
 		}
 	}
+	
+	public Date getDateAdded() {
+		return dateAdded;
+	}
+	
+	public ArrayList<Diet> getDiet() {
+		return diet;
+	}
 }
