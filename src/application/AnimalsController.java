@@ -9,6 +9,7 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
@@ -17,7 +18,7 @@ import javafx.stage.Stage;
 import model.Animal;
 import model.Enclosure;
 
-public class AnimalsController extends Main{
+public class AnimalsController extends Main implements Initializable{
 	
 	@FXML  
 	private Button butLogout;
@@ -107,7 +108,7 @@ public class AnimalsController extends Main{
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		// TODO Auto-generated method stub
 		///listEnclosures.setItems((ObservableList) enclosures);
-		ObservableList<Animal> obslist = FXCollections.observableArrayList(enclosures);
-		listEnclosures.setItems(obslist);
+		///ObservableList<Animal> obslist = FXCollections.observableArrayList(enclosures);
+		///listEnclosures.setItems(obslist);
 	}
 }
