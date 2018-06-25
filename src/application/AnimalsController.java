@@ -16,6 +16,7 @@ import javafx.scene.control.ListView;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import model.Animal;
+import model.Diet;
 import model.Enclosure;
 
 public class AnimalsController extends Main implements Initializable{
@@ -101,6 +102,11 @@ public class AnimalsController extends Main implements Initializable{
 				txtSpecie.setText(String.valueOf(animal.getType())); 
 				txtEnclosure.setText(String.valueOf(animal.getName())); 
 				txtDate.setText(animal.getDateAdded().toGMTString()); 
+				
+				ObservableList<String> obslist1 = FXCollections.observableArrayList(animal.getDiet().getServingTypes());
+				food.setItems(obslist1);
+				ObservableList<String> obslist2 = FXCollections.observableArrayList(animal.getDiet().get);
+				time.setItems(obslist2);
 			}
 		}
 	}
