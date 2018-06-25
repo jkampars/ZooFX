@@ -23,11 +23,11 @@ public class Enclosure {
 	public void setCurrent_capacity(int current_capacity) {
 		this.current_capacity = current_capacity;
 	}
-	public List<Animal> getAnimals() {
-		return animals;
+	public Animal getAnimals(int index) {
+		return animals.get(index);
 	}
-	public void setAnimals(List<Animal> animals) {
-		this.animals = animals;
+	public void setAnimals(Animal animal) {
+		animals.add(animal);
 	}
 	public String getName() {
 		return name;
