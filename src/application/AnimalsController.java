@@ -107,7 +107,7 @@ public class AnimalsController extends Main implements Initializable{
 				ObservableList<Diet> obslist1 = FXCollections.observableArrayList(animal.getDiet());
 				food.setItems(obslist1);
 			}
-		}
+		} 
 	}
 	
 	@Override
