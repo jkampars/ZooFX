@@ -1,12 +1,16 @@
 package model;
 
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 
 public class Animal {
 	private int ID;
 	private String name;
 	private AnimalType type;
 	private ArrayList<Diet> diet = new ArrayList();
+	
+	private Date dateAdded;
 	
 	public int getID() {
 		return ID;
