@@ -89,7 +89,7 @@ public class AnimalsController extends Main{
 	
 	public void Remove(ActionEvent event) {
 		
-	}
+	} 
 	
 	public void Info(ActionEvent event) {
 		Animal animal = (Animal) listAnimals.getSelectionModel().getSelectedItem();
