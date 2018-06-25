@@ -2,8 +2,10 @@ package model;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 
 public class Db {
 	static Connection con = null;
@@ -22,6 +24,15 @@ public class Db {
 		statement = con.createStatement();
 		//statement.executeUpdate("DROP TABLE IF EXISTS Students");
 		//statement.executeUpdate("INSERT INTO users (username, password) VALUES ('admin','123');");
+	}
+	
+	public ArrayList<String> getUsernames() throws SQLException {
+		ResultSet results = statement.executeQuery("SELECT username FROM users;");
+		ArrayList<String> result = new ArrayList();
+		while (results.next()) {
+			result.add(results.getString("username"));
+		}
+		return result;
 	}
 	/**
 	public void createAnimalTable() throws SQLException {

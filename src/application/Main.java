@@ -58,6 +58,7 @@ public class Main extends Application {
 		enclosures.add(buris1);
 		enclosures.add(buris2);
 		enclosures.add(buris3);
+		System.out.println(database.getUsernames());
 		launch(args);
 	}
 
