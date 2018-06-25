@@ -38,12 +38,14 @@ public class Animal {
 		counter++;
 		ID = counter;
 		type=AnimalType.NONE;
+		dateAdded = new Date();
 	}
 	public Animal(String name, AnimalType type) {
 		setName(name);
 		setType(type);
 		counter++;
 		ID = counter;
+		dateAdded = new Date();
 	}
 	public boolean checkName(String name) {
 		if(name.matches("[a-zA-Z0-9]*")) {

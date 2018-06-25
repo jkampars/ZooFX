@@ -14,6 +14,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import model.Animal;
@@ -91,13 +92,38 @@ public class AnimalsController extends Main implements Initializable{
 	}
 	
 	public void Remove(ActionEvent event) {
-		
-	} 
-	
-	public void Info(ActionEvent event) {
 		Animal animal = (Animal) listAnimals.getSelectionModel().getSelectedItem();
 		for(int i = 0; i < enclosures.size(); i++) {
-			if (enclosures.contains(animal)) {
+			if (enclosures.get(i).getAnimals().contains(animal)) {
+				enclosures.get(i).getAnimals().remove(animal);
+
+				
+				
+				
+				//te vajag kaut ko citu reinitialize!!!
+				ArrayList<Animal> allAnimals = new ArrayList<Animal>();
+				for(int j = 0; j < enclosures.size(); j++) {
+					allAnimals.addAll(enclosures.get(j).getAnimals());
+				}
+				
+				ObservableList<Animal> obslist = FXCollections.observableArrayList(allAnimals);
+				listAnimals.setItems(obslist);
+				
+				
+				
+				
+				break;
+			}
+		}
+	} 
+	
+	public void Info(MouseEvent event) {
+		Animal animal = (Animal) listAnimals.getSelectionModel().getSelectedItem();
+		for(int i = 0; i < enclosures.size(); i++) {
+			//if (enclosures.get(i).contains(animal)) {
+			//ArrayList<Animal>  temp = new ArrayList<Animal>();
+			//temp = enclosures.get(i).getAnimals();
+			if (enclosures.get(i).getAnimals().contains(animal)) {
 				txtID.setText(String.valueOf(animal.getID()));
 				txtName.setText(String.valueOf(animal.getName()));  
 				txtSpecie.setText(String.valueOf(animal.getType())); 
@@ -107,7 +133,7 @@ public class AnimalsController extends Main implements Initializable{
 				ObservableList<Diet> obslist1 = FXCollections.observableArrayList(animal.getDiet());
 				food.setItems(obslist1);
 			}
-		} 
+		}
 	}
 	
 	@Override
