@@ -7,7 +7,7 @@ public class Enclosure {
 	private int id;
 	private int MAX_CAPACITY;
 	private int current_capacity;
-	private List<Animal> animals = new ArrayList<>();
+	private ArrayList<Animal> animals = new ArrayList<>();
 	public static int counter = 1000;
 	private String name;
 	private AnimalType type;
@@ -23,8 +23,8 @@ public class Enclosure {
 	public void setCurrent_capacity(int current_capacity) {
 		this.current_capacity = current_capacity;
 	}
-	public Animal getAnimals(int index) {
-		return animals.get(index);
+	public ArrayList<Animal> getAnimals() {
+		return animals;
 	}
 	public void setAnimals(Animal animal) {
 		animals.add(animal);
@@ -58,6 +58,7 @@ public class Enclosure {
 	}
 	public void addAnimal(Animal animal) {
 		animals.add(animal);
+		current_capacity++;
 	}
 	public void removeAnimal(int index) {
 		animals.remove(index);

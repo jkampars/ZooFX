@@ -16,6 +16,7 @@ import javafx.scene.control.ListView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import model.Animal;
 import model.Enclosure;
 
 public class EnclosuresController extends Main implements Initializable{
@@ -60,7 +61,14 @@ public class EnclosuresController extends Main implements Initializable{
 	private ListView listAnimals;
 	
 	public void ShowEnclosures(MouseEvent event) {
-
+		Enclosure selected = (Enclosure) listEnclosures.getSelectionModel().getSelectedItem();
+		txtName.setText(selected.getName());
+		txtType.setText(selected.getType().name());
+		txtCapacity.setText(selected.getCurrent_capacity()+"/"+selected.getMAX_CAPACITY());
+		txtID.setText(Integer.toString(selected.getId()));
+		
+		ObservableList<Animal> obslist = FXCollections.observableArrayList(selected.getAnimals());
+		listAnimals.setItems(obslist);
 	}
 	
 	public void SelectAnimal(MouseEvent event) {
