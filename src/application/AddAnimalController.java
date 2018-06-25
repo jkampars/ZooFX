@@ -80,7 +80,6 @@ public class AddAnimalController extends Main{
 	public void Accept(ActionEvent event) throws IOException {
 		Animal animal = new Animal();
 		animal.setName(txtName.getText());
-		animal.setType((AnimalType) );
 		FXMLLoader loader =  new FXMLLoader(getClass().getResource("/Animals.fxml"));// create and load() view
 		loader.load();
 		Stage stage = (Stage) butAccept.getScene().getWindow();
