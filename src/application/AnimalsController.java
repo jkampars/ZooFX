@@ -131,7 +131,7 @@ public class AnimalsController extends Main implements Initializable{
 				txtDate.setText(animal.getDateAdded().toGMTString()); 
 
 				ObservableList<Diet> obslist1 = FXCollections.observableArrayList(animal.getDiet());
-				food.setItems(obslist1);
+				food.setItems(obslist1); 
 			}
 		}
 	}
