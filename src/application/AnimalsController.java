@@ -103,10 +103,10 @@ public class AnimalsController extends Main implements Initializable{
 				txtEnclosure.setText(String.valueOf(animal.getName())); 
 				txtDate.setText(animal.getDateAdded().toGMTString()); 
 				
-				ObservableList<String> obslist1 = FXCollections.observableArrayList(animal.getDiet().getServingTypes());
-				food.setItems(obslist1);
-				ObservableList<String> obslist2 = FXCollections.observableArrayList(animal.getDiet().get);
-				time.setItems(obslist2);
+				//ObservableList<String> obslist1 = FXCollections.observableArrayList(animal.getDiet().getServingTypes());
+				//food.setItems(obslist1);
+				//ObservableList<String> obslist2 = FXCollections.observableArrayList(animal.getDiet().get);
+				//time.setItems(obslist2);
 			}
 		}
 	}

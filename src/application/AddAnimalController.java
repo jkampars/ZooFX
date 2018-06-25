@@ -1,6 +1,7 @@
 package application;
 
 import java.io.IOException;
+import java.util.List;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -13,6 +14,7 @@ import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import model.Animal;
 
 public class AddAnimalController extends Main{
 	
@@ -76,7 +78,9 @@ public class AddAnimalController extends Main{
 	}
 	
 	public void Accept(ActionEvent event) throws IOException {
-		
+		Animal animal = new Animal();
+		animal.setName(txtName.getText());
+		animal.setType((AnimalType) );
 		FXMLLoader loader =  new FXMLLoader(getClass().getResource("/Animals.fxml"));// create and load() view
 		loader.load();
 		Stage stage = (Stage) butAccept.getScene().getWindow();
@@ -86,5 +90,8 @@ public class AddAnimalController extends Main{
 	
 	public void Cancel(ActionEvent event) {
 		
+	}
+	public void initialize() {
+		SelectEnclosure.getItems().addAll(enclosures);
 	}
 }
