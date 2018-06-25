@@ -1,5 +1,6 @@
 package application;
 	
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 import javafx.application.Application;
@@ -9,6 +10,7 @@ import javafx.stage.Stage;
 import model.User;
 import model.Animal;
 import model.AnimalType;
+import model.Db;
 import model.Enclosure;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -34,7 +36,8 @@ public class Main extends Application {
 	}
 	
 	
-	public static void main(String[] args) {
+	public static void main(String[] args) throws ClassNotFoundException, SQLException {
+		Db database = new Db();
 		users.add(new User("1","1"));
 		users.add(new User("user","pass"));
 		users.add(new User("admin","123"));

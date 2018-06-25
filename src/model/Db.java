@@ -12,7 +12,7 @@ public class Db {
 	public static void createConnection() throws ClassNotFoundException, SQLException {
 		//Ielade SQL un izveido connection
 		Class.forName("org.sqlite.JDBC");
-		con = DriverManager.getConnection("jdbc:sqlite:ZOO.db");
+		con = DriverManager.getConnection("jdbc:sqlite:zoodb.db");
 		//createStudentsTable();
 		//con.close();
 	}
@@ -20,10 +20,10 @@ public class Db {
 	public Db() throws ClassNotFoundException, SQLException {
 		createConnection();
 		statement = con.createStatement();
-		statement.executeUpdate("DROP TABLE IF EXISTS Students");
-
+		//statement.executeUpdate("DROP TABLE IF EXISTS Students");
+		//statement.executeUpdate("INSERT INTO users (username, password) VALUES ('admin','123');");
 	}
-	
+	/**
 	public void createAnimalTable() throws SQLException {
 		statement.executeUpdate("CREATE TABLE IF NOT EXISTS Animals (" +
 				"	 ID INTEGER PRIMARY KEY AUTOINCREMENT," +
@@ -32,7 +32,6 @@ public class Db {
 				"    Grade int"+
 				");");
 	}
-	/**
 	public void addStudent(Student student) throws SQLException {
 		statement.executeUpdate("INSERT INTO Students (Name, Surname, Age, Grade)" + 
 				"VALUES ('"+student.getFirstname()+"', '"+student.getLastname()+"', "+student.getAge()+", "+student.getGrade()+");");
