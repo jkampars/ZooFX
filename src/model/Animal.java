@@ -53,6 +53,12 @@ public class Animal {
 			return false;
 		}
 	}
+	public ArrayList<Diet> getDiet() {
+		return diet;
+	}
+	public Date getDateAdded() {
+		return dateAdded;
+	}
 	public String toString() {
 		return name+" "+ID;
 	}
