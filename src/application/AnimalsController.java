@@ -2,6 +2,7 @@ package application;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 import javafx.collections.FXCollections;
@@ -103,18 +104,22 @@ public class AnimalsController extends Main implements Initializable{
 				txtEnclosure.setText(String.valueOf(animal.getName())); 
 				txtDate.setText(animal.getDateAdded().toGMTString()); 
 				
-				ObservableList<String> obslist1 = FXCollections.observableArrayList(animal.getDiet().getServingTypes());
+				ObservableList<Diet> obslist1 = FXCollections.observableArrayList(animal.getDiet());
 				food.setItems(obslist1);
-				ObservableList<String> obslist2 = FXCollections.observableArrayList(animal.getDiet().get);
-				time.setItems(obslist2);
 			}
 		}
 	}
 	
+	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		// TODO Auto-generated method stub
 		///listEnclosures.setItems((ObservableList) enclosures);
-		///ObservableList<Animal> obslist = FXCollections.observableArrayList(enclosures);
-		///listEnclosures.setItems(obslist);
+		ArrayList<Animal> allAnimals = new ArrayList<Animal>();
+		for(int i = 0; i < enclosures.size(); i++) {
+			allAnimals.addAll(enclosures.get(i).getAnimals());
+		}
+		
+		ObservableList<Animal> obslist = FXCollections.observableArrayList(allAnimals);
+		listAnimals.setItems(obslist);
 	}
 }
