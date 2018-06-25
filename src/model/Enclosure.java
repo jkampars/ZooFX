@@ -43,6 +43,7 @@ public class Enclosure {
 	public AnimalType getType() {
 		return type;
 	}
+	
 	public void setType(AnimalType type) {
 		this.type = type;
 	}
