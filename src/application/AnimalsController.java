@@ -1,7 +1,11 @@
 package application;
 
 import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -11,6 +15,7 @@ import javafx.scene.control.ListView;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import model.Animal;
+import model.Enclosure;
 
 public class AnimalsController extends Main{
 	
@@ -88,12 +93,22 @@ public class AnimalsController extends Main{
 	
 	public void Info(ActionEvent event) {
 		Animal animal = (Animal) listAnimals.getSelectionModel().getSelectedItem();
-		if (enclosures.contains(animal)) {
-			txtID.setText(String.valueOf(animal.getID()));
-			txtName.setText(String.valueOf(animal.getName()));  
-			txtSpecie.setText(String.valueOf(animal.getType())); 
-			txtEnclosure.setText(String.valueOf(animal.getName())); 
-			//txtDate.setText(String.valueOf(animal.getName())); 
+		for(int i = 0; i < enclosures.size(); i++) {
+			if (enclosures.contains(animal)) {
+				txtID.setText(String.valueOf(animal.getID()));
+				txtName.setText(String.valueOf(animal.getName()));  
+				txtSpecie.setText(String.valueOf(animal.getType())); 
+				txtEnclosure.setText(String.valueOf(animal.getName())); 
+				//txtDate.setText(String.valueOf(animal.getName())); 
+			}
 		}
 	}
+	
+	/*@Override
+	public void initialize(URL arg0, ResourceBundle arg1) {
+		// TODO Auto-generated method stub
+		///listEnclosures.setItems((ObservableList) enclosures);
+		ObservableList<Enclosure> obslist = FXCollections.observableArrayList(enclosures);
+		listEnclosures.setItems(obslist);
+	}*/
 }
