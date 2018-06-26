@@ -95,6 +95,7 @@ public class EditAnimalController extends Main implements Initializable{
             alert.setTitle("Animal name input fail");
             alert.setHeaderText("Animal name consists only of letters and numbers");
             alert.show();
+            correctInput = false;
 		}
 		if (correctInput) {
 			model.Enclosure selectedEnclosure = (model.Enclosure)SelectEnclosure.getSelectionModel().getSelectedItem();
