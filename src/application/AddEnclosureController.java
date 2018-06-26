@@ -51,19 +51,29 @@ public class AddEnclosureController extends Main{
 	
 	public void Accept(ActionEvent event) throws IOException {
 		boolean correctInput = true;
-		int capacity = Integer.parseInt(txtCapacity.getText());
+		
 		Enclosure buris = new Enclosure();
 		if(Enclosure.checkName(txtName.getText())) {
 			buris.setName(txtName.getText());
 			System.out.println(txtName.getText());
 			buris.setType((AnimalType) selectType.getSelectionModel().getSelectedItem());
 			System.out.println((AnimalType) selectType.getSelectionModel().getSelectedItem());
-			buris.setMAX_CAPACITY(capacity);
-			System.out.println(capacity);
-			enclosures.add(buris);
-			System.out.println("Enclosure has been made");
-			for (Enclosure i : enclosures) {
-				System.out.println(i.getName());
+			if(txtCapacity.getText().matches("[0-9]*")) {
+				int capacity = Integer.parseInt(txtCapacity.getText());
+				buris.setMAX_CAPACITY(capacity);
+				System.out.println(capacity);
+				enclosures.add(buris);
+				System.out.println("Enclosure has been made");
+				for (Enclosure i : enclosures) {
+					System.out.println(i.getName());
+				}
+			}
+			else {
+				Alert alert = new Alert(AlertType.ERROR);
+	            alert.setTitle("Enclosure size input fail");
+	            alert.setHeaderText("Enclosure size consists only of numbers");
+	            alert.show();
+	            correctInput = false;
 			}
 		}
 		else {
