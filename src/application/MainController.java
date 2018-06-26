@@ -77,11 +77,10 @@ public class MainController extends Main implements Initializable{
 	}
 	
 	public void Tickets(ActionEvent event) throws IOException {
-		FXMLLoader loader =  new FXMLLoader(getClass().getResource("/Login.fxml"));// create and load() view
-		loader.load();
-		Stage stage = (Stage) butTickets.getScene().getWindow();
-		Scene scene = new Scene(loader.getRoot());
-		stage.setScene(scene);
+		Alert alert = new Alert(AlertType.ERROR);
+        alert.setHeaderText("Under construction!");
+        alert.setContentText("This feature is not yet available");
+        alert.show();
 	}
 	
 	@Override
