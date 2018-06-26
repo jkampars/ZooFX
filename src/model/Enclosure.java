@@ -83,6 +83,14 @@ public class Enclosure {
 	public String toString() {
 		return name;
 	}
+	public boolean animalsIsEmpty() {
+		if(animals.isEmpty()) {
+			return true;
+		}
+		else {
+			return false;
+		}
+	}
 }
 
 
