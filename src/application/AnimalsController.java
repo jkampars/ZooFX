@@ -127,7 +127,7 @@ public class AnimalsController extends Main implements Initializable{
 				txtID.setText(String.valueOf(animal.getID()));
 				txtName.setText(String.valueOf(animal.getName()));  
 				txtSpecie.setText(String.valueOf(animal.getType())); 
-				txtEnclosure.setText(String.valueOf(animal.getName())); 
+				txtEnclosure.setText(String.valueOf(enclosures.get(i).toString())); 
 				txtDate.setText(animal.getDateAdded().toGMTString()); 
 
 				ObservableList<Diet> obslist1 = FXCollections.observableArrayList(animal.getDiet());

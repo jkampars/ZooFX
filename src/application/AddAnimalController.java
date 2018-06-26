@@ -15,6 +15,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import model.Animal;
+import model.AnimalType;
 
 public class AddAnimalController extends Main{
 	
@@ -82,6 +83,10 @@ public class AddAnimalController extends Main{
 	public void Accept(ActionEvent event) throws IOException {
 		Animal animal = new Animal();
 		animal.setName(txtName.getText());
+		animal.setType((AnimalType) listSpecie.getSelectionModel().getSelectedItem());
+		if(enclosures.contains(SelectEnclosure.getSelectionModel().getSelectedItem())) {
+			enclosures.get(enclosures.indexOf(SelectEnclosure.getSelectionModel().getSelectedItem())).addAnimal(animal);;
+		}
 		FXMLLoader loader =  new FXMLLoader(getClass().getResource("/Animals.fxml"));// create and load() view
 		loader.load();
 		Stage stage = (Stage) butAccept.getScene().getWindow();
@@ -89,10 +94,16 @@ public class AddAnimalController extends Main{
 		stage.setScene(scene);
 	}
 	
-	public void Cancel(ActionEvent event) {
-		
+	public void Cancel(ActionEvent event) throws IOException {
+		FXMLLoader loader =  new FXMLLoader(getClass().getResource("/Animals.fxml"));// create and load() view
+		loader.load();
+		Stage stage = (Stage) butCancel.getScene().getWindow();
+		Scene scene = new Scene(loader.getRoot());
+		stage.setScene(scene);
 	}
+	
 	public void initialize() {
 		SelectEnclosure.getItems().addAll(enclosures);
+		listSpecie.getItems().setAll(AnimalType.values());
 	}
 }
