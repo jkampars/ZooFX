@@ -19,7 +19,6 @@ import model.AnimalType;
 import model.Enclosure;
 
 public class EditEnclosureController extends Main implements Initializable{
-	private Enclosure selectedEnclosure;
 	@FXML  
 	private Button butLogout;
 	
@@ -47,7 +46,7 @@ public class EditEnclosureController extends Main implements Initializable{
 	}
 	
 	public void Accept(ActionEvent event) throws IOException {
-		
+		System.out.println(selectedEnclosure);
 		FXMLLoader loader =  new FXMLLoader(getClass().getResource("/Enclosures.fxml"));// create and load() view
 		loader.load();
 		Stage stage = (Stage) butAccept.getScene().getWindow();
@@ -66,10 +65,21 @@ public class EditEnclosureController extends Main implements Initializable{
 	public void Select(ActionEvent event) {
 		
 	}
+	
+	private Enclosure selectedEnclosure;
 
+	public void showSelectedEnclosure(Enclosure input) {
+		txtName.setText(input.getName());
+		txtCapacity.setText(Integer.toString(input.getMAX_CAPACITY()));
+		selectType.getSelectionModel().select(input.getType());
+		for (int i=0;i<enclosures.size();i++) {
+			if (enclosures.get(i).equals(input))
+				selectedEnclosure = enclosures.get(i);
+		}
+	}
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		// TODO Auto-generated method stub
-		
+		selectType.getItems().setAll(AnimalType.values());
 	}
 }
