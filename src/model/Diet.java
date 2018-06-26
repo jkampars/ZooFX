@@ -5,19 +5,31 @@ import java.util.ArrayList;
 import java.util.Date;
 
 public class Diet {
-	ArrayList<String> servingTypes;
-	ArrayList<Time> servingTimes;
+	private int hours;
+	private int min;
+	private String food;
 	
-	public ArrayList<String> getServingTypes() {
-		return servingTypes;
+	public int getHours() {
+		return hours;
 	}
-	public ArrayList<Time> getServingTimes() {
-		return servingTimes;
+	public void setHours(int hours) {
+		this.hours = hours;
+	}
+	public int getMin() {
+		return min;
+	}
+	public void setMin(int min) {
+		this.min = min;
+	}
+	public String getFood() {
+		return food;
+	}
+	public void setFood(String food) {
+		this.food = food;
 	}
 	
-	public void addFood(String food, Time time) {
-		servingTypes.add(food);
-		servingTimes.add(time);
+	public String toString(){
+		return hours+":"+min+" - "+food;
 	}
 }
 
