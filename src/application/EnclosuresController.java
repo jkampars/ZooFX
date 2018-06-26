@@ -88,7 +88,7 @@ public class EnclosuresController extends Main implements Initializable{
 	public void Home(ActionEvent event) throws IOException {
 		FXMLLoader loader =  new FXMLLoader(getClass().getResource("/Main.fxml"));// create and load() view
 		loader.load();
-		Stage stage = (Stage) butLogout.getScene().getWindow();
+		Stage stage = (Stage) butHome.getScene().getWindow();
 		Scene scene = new Scene(loader.getRoot());
 		stage.setScene(scene);
 	}
@@ -114,7 +114,7 @@ public class EnclosuresController extends Main implements Initializable{
 		}
 		FXMLLoader loader =  new FXMLLoader(getClass().getResource("/Enclosures.fxml"));// create and load() view
 		loader.load();
-		Stage stage = (Stage) butAddEnclosure.getScene().getWindow();
+		Stage stage = (Stage) butRemoveEnclosure.getScene().getWindow();
 		Scene scene = new Scene(loader.getRoot());
 		stage.setScene(scene);
 	}
@@ -123,8 +123,12 @@ public class EnclosuresController extends Main implements Initializable{
 		
 	}
 	
-	public void MoveAnimal(ActionEvent event) {
-		
+	public void MoveAnimal(ActionEvent event) throws IOException {
+		FXMLLoader loader =  new FXMLLoader(getClass().getResource("/MoveAnimal.fxml"));// create and load() view
+		loader.load();
+		Stage stage = (Stage) butMoveAnimal.getScene().getWindow();
+		Scene scene = new Scene(loader.getRoot());
+		stage.setScene(scene);
 	}
 	
 
