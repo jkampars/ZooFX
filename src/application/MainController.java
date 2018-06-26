@@ -83,7 +83,7 @@ public class MainController extends Main implements Initializable{
 	public void Tickets(ActionEvent event) throws IOException {
 		Alert alert = new Alert(AlertType.ERROR);
         alert.setHeaderText("Under construction!");
-        alert.setContentText("This feature is not yet available");
+        alert.setContentText("This feature is not yet available"); 
         alert.show();
 	}
 	
