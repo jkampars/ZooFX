@@ -3,7 +3,6 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.ListView?>
-<?import javafx.scene.control.SplitPane?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Text?>
@@ -15,38 +14,25 @@
             <Button fx:id="butLogout" layoutX="569.0" layoutY="56.0" mnemonicParsing="false" onAction="#Logout" prefHeight="25.0" prefWidth="90.0" text="Log out" />
             <Button fx:id="butAccept" layoutX="569.0" layoutY="170.0" mnemonicParsing="false" onAction="#Accept" prefHeight="25.0" prefWidth="90.0" text="Accept" />
             <Button fx:id="butCancel" layoutX="569.0" layoutY="212.0" mnemonicParsing="false" onAction="#Cancel" prefHeight="25.0" prefWidth="90.0" text="Cancel" />
-            <AnchorPane layoutX="158.0" layoutY="45.0" minHeight="0.0" minWidth="0.0" prefHeight="371.0" prefWidth="291.0">
+            <AnchorPane layoutX="158.0" layoutY="45.0" minHeight="0.0" minWidth="0.0" prefHeight="438.0" prefWidth="291.0">
                <children>
                   <Text layoutX="14.0" layoutY="80.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Enclosure:" />
                   <Text layoutX="12.0" layoutY="113.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Specie:" />
                   <Text layoutX="18.0" layoutY="165.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Food" />
-                  <Text layoutX="121.0" layoutY="165.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Hour" />
+                  <Text layoutX="108.0" layoutY="165.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Hour" />
                   <Text fx:id="txtID" layoutX="103.0" layoutY="47.0" strokeType="OUTSIDE" strokeWidth="0.0" />
-                  <TextField fx:id="txtFood" layoutX="14.0" layoutY="177.0" prefHeight="25.0" prefWidth="83.0" promptText="Food" />
-                  <TextField fx:id="txtHour" layoutX="121.0" layoutY="177.0" prefHeight="25.0" prefWidth="37.0" />
-                  <Text layoutX="186.0" layoutY="165.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Minutes" />
-                  <TextField fx:id="txtMinutes" layoutX="186.0" layoutY="177.0" prefHeight="25.0" prefWidth="37.0" />
+                  <TextField fx:id="txtFood" layoutX="13.0" layoutY="210.0" prefHeight="25.0" prefWidth="207.0" promptText="Food" />
+                  <Text layoutX="173.0" layoutY="165.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Minutes" />
                   <Text layoutX="17.0" layoutY="148.0" strokeType="OUTSIDE" strokeWidth="0.0" text="1. feeding" />
-                  <Button fx:id="butAdd" layoutX="245.0" layoutY="177.0" mnemonicParsing="false" onAction="#Add" text="Add" />
-                  <SplitPane dividerPositions="0.5" layoutX="14.0" layoutY="211.0" prefHeight="154.0" prefWidth="209.0">
-                    <items>
-                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
-                           <children>
-                              <ListView fx:id="listFood" layoutX="-52.0" layoutY="-29.0" prefHeight="152.0" prefWidth="101.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
-                           </children>
-                        </AnchorPane>
-                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
-                           <children>
-                              <ListView fx:id="listTime" layoutX="-4.0" layoutY="-8.0" prefHeight="152.0" prefWidth="100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
-                           </children>
-                        </AnchorPane>
-                    </items>
-                  </SplitPane>
+                  <Button fx:id="butAdd" layoutX="235.0" layoutY="210.0" mnemonicParsing="false" onAction="#Add" prefHeight="25.0" prefWidth="59.0" text="Add" />
+                  <ListView fx:id="listFood" layoutX="12.0" layoutY="243.0" prefHeight="182.0" prefWidth="207.0" />
                   <Text layoutX="15.0" layoutY="47.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Name:" />
                   <TextField fx:id="txtName" layoutX="62.0" layoutY="30.0" prefHeight="25.0" prefWidth="161.0" promptText="Name (Can be left empty)" />
                   <ComboBox fx:id="SelectEnclosure" layoutX="71.0" layoutY="63.0" onAction="#Enclosure" prefWidth="150.0" />
-                  <Button fx:id="butRemove" layoutX="246.0" layoutY="210.0" mnemonicParsing="false" onAction="#Remove" text="Remove" />
+                  <Button fx:id="butRemove" layoutX="235.0" layoutY="243.0" mnemonicParsing="false" onAction="#Remove" text="Remove" />
                   <ComboBox fx:id="listSpecie" layoutX="59.0" layoutY="96.0" onAction="#selectSpecie" prefHeight="25.0" prefWidth="161.0" />
+                  <ComboBox fx:id="comboHour" layoutX="96.0" layoutY="175.0" onAction="#selectHour" prefHeight="25.0" prefWidth="27.0" />
+                  <ComboBox fx:id="comboMinutes" layoutX="169.0" layoutY="175.0" onAction="#selectMinutes" prefHeight="25.0" prefWidth="27.0" />
                </children>
             </AnchorPane>
          </children>

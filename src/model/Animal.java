@@ -10,7 +10,7 @@ public class Animal extends Main{
 	private int ID;
 	private String name;
 	private AnimalType type;
-	private ArrayList<Diet> diet = new ArrayList();
+	private Diet diet = new Diet();
 	private static int counter = 1000;
 	
 	private Date dateAdded;
@@ -57,7 +57,7 @@ public class Animal extends Main{
 			return false;
 		}
 	}
-	public ArrayList<Diet> getDiet() {
+	public Diet getDiet() {
 		return diet;
 	}
 	public Date getDateAdded() {
@@ -66,7 +66,7 @@ public class Animal extends Main{
 	public String toString() {
 		return name+" "+ID;
 	}
-	public void setDiet(ArrayList<Diet> diet) {
+	public void setDiet(Diet diet) {
 		this.diet = diet;
 	}
 	public void moveTo(Enclosure moveTo) {

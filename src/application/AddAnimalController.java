@@ -5,6 +5,8 @@ import java.sql.Time;
 import java.util.ArrayList;
 import java.util.List;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -58,10 +60,7 @@ public class AddAnimalController extends Main{
 	@FXML  
 	private ListView listFood;
 	
-	@FXML  
-	private ListView listTime; 
-	
-	private ArrayList<Diet> diet = new ArrayList<Diet>();
+	private Diet serving = new Diet();
 	
 	public void Enclosure(ActionEvent event) {
 		
@@ -77,14 +76,30 @@ public class AddAnimalController extends Main{
 		stage.setScene(scene);
 	}
 	
-	public void Add(ActionEvent event) {
+	@SuppressWarnings("deprecation")
+	public void Add(ActionEvent event){
 		if(txtFood.getText() != "" && (Integer.valueOf(txtHour.getText()) >= 0 && Integer.valueOf(txtHour.getText()) <= 23) && (Integer.valueOf(txtMinutes.getText()) >= 0 && Integer.valueOf(txtMinutes.getText()) <= 59)) {
-			Time time = new Time(0);
-			time.setHours(Integer.valueOf(txtHour.getText()));
-			time.setMinutes(Integer.valueOf(txtMinutes.getText()));
-			Diet serving = new Diet();
-			serving.addFood(txtFood.getText(), time);
+			Time time1 = new Time(0);
+			time1.setHours(Integer.valueOf(txtHour.getText()));
+			time1.setMinutes(Integer.valueOf(txtMinutes.getText()));
+			serving.addFood(txtFood.getText(), time1);
+			
+			
+			ArrayList<Diet> diet = new ArrayList<Diet>();
 			diet.add(serving);
+			
+			ObservableList<Diet> obslist = FXCollections.observableArrayList(diet);
+			listFood.setItems(obslist);
+			/*
+			ArrayList<String> food = new ArrayList<String>();
+			food.addAll(serving.getServingTypes());
+			ArrayList<Time> time = new ArrayList<Time>();
+			time.addAll(serving.getServingTimes());
+			
+			ObservableList<String> obslist1 = FXCollections.observableArrayList(food);
+			listFood.setItems(obslist1);
+			ObservableList<Time> obslist2 = FXCollections.observableArrayList(time);
+			listTime.setItems(obslist2);*/
 		}
 	}
 	
@@ -96,7 +111,7 @@ public class AddAnimalController extends Main{
 		Animal animal = new Animal();
 		animal.setName(txtName.getText());
 		animal.setType((AnimalType) listSpecie.getSelectionModel().getSelectedItem());
-		animal.setDiet(diet);
+		animal.setDiet(serving);
 		if(enclosures.contains(SelectEnclosure.getSelectionModel().getSelectedItem())) {
 			enclosures.get(enclosures.indexOf(SelectEnclosure.getSelectionModel().getSelectedItem())).addAnimal(animal);;
 		}
@@ -120,7 +135,10 @@ public class AddAnimalController extends Main{
 		SelectEnclosure.getItems().addAll(enclosures);
 		listSpecie.getItems().setAll(AnimalType.values());
 		
-		listFood.getItems().addAll(diet);
-		listTime.getItems().addAll(diet);
+		/*ArrayList<Diet> diet = new ArrayList<Diet>();
+		diet.add(serving);
+		
+		ObservableList<Diet> obslist = FXCollections.observableArrayList(diet);
+		listFood.setItems(obslist);*/
 	}
 }
