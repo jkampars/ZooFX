@@ -51,7 +51,7 @@ public class Animal extends Main{
 	}
 	public static boolean checkName(String name) {
 		if(name.matches("[a-zA-Z0-9]*")) {
-			return true;
+			return true; 
 		}
 		else { 
 			return false;
