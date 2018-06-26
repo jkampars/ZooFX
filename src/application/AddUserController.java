@@ -15,7 +15,7 @@ import javafx.stage.Stage;
 public class AddUserController {
 	
 	@FXML  
-	private Button butLogut;
+	private Button butLogout;
 	
 	@FXML  
 	private Button butHome;
@@ -43,10 +43,10 @@ public class AddUserController {
 		stage.setScene(scene);
 	}
 	
-	public void AddUser(ActionEvent event) throws IOException {
-		FXMLLoader loader =  new FXMLLoader(getClass().getResource("/AddUser.fxml"));// create and load() view
+	public void Logout(ActionEvent event) throws IOException {
+		FXMLLoader loader =  new FXMLLoader(getClass().getResource("/Login.fxml"));// create and load() view
 		loader.load();
-		Stage stage = (Stage) butHome.getScene().getWindow();
+		Stage stage = (Stage) butLogout.getScene().getWindow();
 		Scene scene = new Scene(loader.getRoot());
 		stage.setScene(scene);
 	}
