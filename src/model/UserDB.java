@@ -7,7 +7,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
-public class Db {
+public class UserDB {
 	static Connection con = null;
 	static Statement statement = null;
 	
@@ -19,11 +19,11 @@ public class Db {
 		//con.close();
 	}
 	
-	public Db() throws ClassNotFoundException, SQLException {
+	public UserDB() throws ClassNotFoundException, SQLException {
 		createConnection();
 		statement = con.createStatement();
 		//statement.executeUpdate("DROP TABLE IF EXISTS Students");
-		//statement.executeUpdate("INSERT INTO users (username, password) VALUES ('admin','123');");
+		statement.executeUpdate("INSERT INTO users (username, password, usertype) VALUES ('admin','123',2);");
 	}
 	
 	public ArrayList<String> getUsernames() throws SQLException {
@@ -33,6 +33,17 @@ public class Db {
 			result.add(results.getString("username"));
 		}
 		return result;
+	}
+	
+	public void addUser(User input) throws SQLException {
+		int usertype = 0;
+		if (input.getUserType()==UserType.NOUSER)
+			usertype=0;
+		else if (input.getUserType()==UserType.USER)
+			usertype=1;
+		else if (input.getUserType()==UserType.ADMIN)
+			usertype=2;
+		statement.executeUpdate("INSERT INTO users (username, password, usertype) VALUES ('"+input.getUsername()+"','"+input.getPassword()+"',"+usertype+");");
 	}
 	/**
 	public void createAnimalTable() throws SQLException {

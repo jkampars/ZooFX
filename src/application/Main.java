@@ -10,7 +10,7 @@ import javafx.stage.Stage;
 import model.User;
 import model.Animal;
 import model.AnimalType;
-import model.Db;
+import model.UserDB;
 import model.Enclosure;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -37,7 +37,7 @@ public class Main extends Application {
 	
 	
 	public static void main(String[] args) throws ClassNotFoundException, SQLException {
-		Db database = new Db();
+		UserDB database = new UserDB();
 		users.add(new User("1","1"));
 		users.add(new User("user","pass"));
 		users.add(new User("admin","123"));
