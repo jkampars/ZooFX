@@ -31,8 +31,8 @@
                   <ComboBox fx:id="SelectEnclosure" layoutX="71.0" layoutY="63.0" onAction="#Enclosure" prefWidth="150.0" />
                   <Button fx:id="butRemove" layoutX="235.0" layoutY="243.0" mnemonicParsing="false" onAction="#Remove" text="Remove" />
                   <ComboBox fx:id="listSpecie" layoutX="59.0" layoutY="96.0" onAction="#selectSpecie" prefHeight="25.0" prefWidth="161.0" />
-                  <ComboBox fx:id="comboHour" layoutX="96.0" layoutY="175.0" prefHeight="25.0" prefWidth="27.0" />
-                  <ComboBox fx:id="comboMinutes" layoutX="169.0" layoutY="175.0" prefHeight="25.0" prefWidth="27.0" />
+                  <ComboBox fx:id="comboHour" layoutX="92.0" layoutY="175.0" prefHeight="25.0" prefWidth="59.0" />
+                  <ComboBox fx:id="comboMinutes" layoutX="165.0" layoutY="175.0" prefHeight="25.0" prefWidth="59.0" />
                </children>
             </AnchorPane>
          </children>
