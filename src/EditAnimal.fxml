@@ -8,8 +8,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Text?>
 
-
-<AnchorPane xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/10.0.1" fx:controller="application.EditAnimalController">
+<AnchorPane xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.EditAnimalController">
    <children>
       <AnchorPane layoutX="10.0" layoutY="10.0" prefHeight="500.0" prefWidth="700.0">
          <children>
@@ -25,7 +24,6 @@
                         <Text layoutX="18.0" layoutY="165.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Food" />
                         <Text layoutX="121.0" layoutY="165.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Hour" />
                         <Text fx:id="txtID" layoutX="103.0" layoutY="47.0" strokeType="OUTSIDE" strokeWidth="0.0" />
-                        <TextField fx:id="txtSpecie" layoutX="61.0" layoutY="96.0" prefHeight="25.0" prefWidth="161.0" promptText="Specie" />
                         <TextField fx:id="txtFood" layoutX="14.0" layoutY="177.0" prefHeight="25.0" prefWidth="83.0" promptText="Food" />
                         <TextField fx:id="txtHour" layoutX="121.0" layoutY="177.0" prefHeight="25.0" prefWidth="37.0" />
                         <Text layoutX="186.0" layoutY="165.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Minutes" />
@@ -46,10 +44,13 @@
                               </AnchorPane>
                            </items>
                         </SplitPane>
-                        <Text layoutX="15.0" layoutY="47.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Name:" />
-                        <TextField fx:id="txtName" layoutX="62.0" layoutY="30.0" prefHeight="25.0" prefWidth="161.0" promptText="Name (Can be left empty)" />
                         <ComboBox fx:id="SelectEnclosure" layoutX="71.0" layoutY="63.0" onMouseClicked="#Enclosure" prefWidth="150.0" />
                         <Button fx:id="butRemove" layoutX="246.0" layoutY="210.0" mnemonicParsing="false" onAction="#Remove" text="Remove" />
+                        <Text layoutX="23.0" layoutY="47.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Name:" />
+                        <TextField fx:id="txtName" layoutX="66.0" layoutY="30.0" prefHeight="25.0" prefWidth="161.0" promptText="Name (Can be left empty)" />
+                        <Text layoutX="29.0" layoutY="19.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ID:" />
+                        <Text fx:id="txtId" layoutX="66.0" layoutY="19.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
+                        <Text fx:id="txtSpecie" layoutX="77.0" layoutY="113.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
                      </children>
                   </AnchorPane>
                </children>

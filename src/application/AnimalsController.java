@@ -12,8 +12,10 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
@@ -94,12 +96,21 @@ public class AnimalsController extends Main implements Initializable{
 				int index = i;
 			}
 		}
-		
-		FXMLLoader loader =  new FXMLLoader(getClass().getResource("/EditAnimal.fxml"));// create and load() view
-		loader.load();
-		Stage stage = (Stage) butAddAnimal.getScene().getWindow();
-		Scene scene = new Scene(loader.getRoot());
-		stage.setScene(scene);
+		if (listAnimals.getSelectionModel().getSelectedItem()!=null) {
+			FXMLLoader loader =  new FXMLLoader(getClass().getResource("/EditAnimal.fxml"));// create and load() view
+			loader.load();
+			EditAnimalController mainController = loader.<EditAnimalController>getController();
+	        mainController.showSelectedAnimal(animal);;
+			Stage stage = (Stage) butAddAnimal.getScene().getWindow();
+			Scene scene = new Scene(loader.getRoot());
+			stage.setScene(scene);
+		}
+		else {
+			Alert alert = new Alert(AlertType.ERROR);
+            alert.setTitle("No animal selected");
+            alert.setHeaderText("Please select an animal you wish to edit");
+            alert.show();
+		}
 	}
 	
 	public void Remove(ActionEvent event) {
