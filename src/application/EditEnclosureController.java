@@ -19,7 +19,6 @@ import model.AnimalType;
 import model.Enclosure;
 
 public class EditEnclosureController extends Main implements Initializable{
-	private Enclosure selectedEnclosure;
 	@FXML  
 	private Button butLogout;
 	
@@ -47,12 +46,38 @@ public class EditEnclosureController extends Main implements Initializable{
 	}
 	
 	public void Accept(ActionEvent event) throws IOException {
+		///System.out.println(selectedEnclosure);
+		boolean correctInput = true;
+		if(Enclosure.checkName(txtName.getText())) {
+			selectedEnclosure.setName(txtName.getText());
+			selectedEnclosure.setType((AnimalType) selectType.getSelectionModel().getSelectedItem());
+			if(txtCapacity.getText().matches("[0-9]*")) {
+				int capacity = Integer.parseInt(txtCapacity.getText());
+				selectedEnclosure.setMAX_CAPACITY(capacity);
+			}
+			else {
+				Alert alert = new Alert(AlertType.ERROR);
+	            alert.setTitle("Enclosure size input fail");
+	            alert.setHeaderText("Enclosure size consists only of numbers");
+	            alert.show();
+	            correctInput = false;
+			}
+		}
+		else {
+			Alert alert = new Alert(AlertType.ERROR);
+            alert.setTitle("Enclosure name input fail");
+            alert.setHeaderText("Enclosure name consists only of letters and numbers");
+            alert.show();
+            correctInput = false;
+		}
 		
-		FXMLLoader loader =  new FXMLLoader(getClass().getResource("/Enclosures.fxml"));// create and load() view
-		loader.load();
-		Stage stage = (Stage) butAccept.getScene().getWindow();
-		Scene scene = new Scene(loader.getRoot());
-		stage.setScene(scene);
+		if(correctInput) {
+			FXMLLoader loader =  new FXMLLoader(getClass().getResource("/Enclosures.fxml"));// create and load() view
+			loader.load();
+			Stage stage = (Stage) butAccept.getScene().getWindow();
+			Scene scene = new Scene(loader.getRoot());
+			stage.setScene(scene);
+		}
 	}
 	
 	public void Cancel(ActionEvent event) throws IOException {
@@ -66,10 +91,21 @@ public class EditEnclosureController extends Main implements Initializable{
 	public void Select(ActionEvent event) {
 		
 	}
+	
+	private Enclosure selectedEnclosure;
 
+	public void showSelectedEnclosure(Enclosure input) {
+		txtName.setText(input.getName());
+		txtCapacity.setText(Integer.toString(input.getMAX_CAPACITY()));
+		selectType.getSelectionModel().select(input.getType());
+		for (int i=0;i<enclosures.size();i++) {
+			if (enclosures.get(i).equals(input))
+				selectedEnclosure = enclosures.get(i);
+		}
+	}
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		// TODO Auto-generated method stub
-		
+		selectType.getItems().setAll(AnimalType.values());
 	}
 }

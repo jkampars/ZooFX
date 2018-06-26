@@ -53,7 +53,14 @@ public class AddEnclosureController extends Main{
 		boolean correctInput = true;
 		
 		Enclosure buris = new Enclosure();
-		if(Enclosure.checkName(txtName.getText())) {
+		if (txtName.getText().equals("")) {
+			Alert alert = new Alert(AlertType.ERROR);
+            alert.setTitle("Enclosure name fail");
+            alert.setHeaderText("Enclosure needs a name");
+            alert.show();
+            correctInput = false;
+		}
+		else if(Enclosure.checkName(txtName.getText())) {
 			buris.setName(txtName.getText());
 			System.out.println(txtName.getText());
 			buris.setType((AnimalType) selectType.getSelectionModel().getSelectedItem());

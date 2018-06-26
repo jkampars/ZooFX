@@ -26,6 +26,7 @@ import model.Enclosure;
 
 public class EnclosuresController extends Main implements Initializable{
 	
+	
 	@FXML  
 	private Button butLogout;
 	
@@ -150,6 +151,8 @@ public class EnclosuresController extends Main implements Initializable{
 			Enclosure enclosure = (Enclosure) listEnclosures.getSelectionModel().getSelectedItem();
 			FXMLLoader loader =  new FXMLLoader(getClass().getResource("/EditEnclosure.fxml"));// create and load() view
 			loader.load();
+			EditEnclosureController mainController = loader.<EditEnclosureController>getController();
+	        mainController.showSelectedEnclosure(enclosure);
 			Stage stage = (Stage) butEditEnclosure.getScene().getWindow();
 			Scene scene = new Scene(loader.getRoot());
 			stage.setScene(scene);
