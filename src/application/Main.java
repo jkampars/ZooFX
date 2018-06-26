@@ -67,13 +67,15 @@ public class Main extends Application {
 		enclosures.add(buris2);
 		enclosures.add(buris3);
 		**/
+		loadUsers();
 		loadEnclosures();
 		launch(args);
 		saveEnclosures();
+		saveUsers();
 	}
 	
 	public static void saveEnclosures() throws IOException {
-		saveBackup();
+		backupEnclosures();
 		FileOutputStream fos = new FileOutputStream("enclosures.tmp");
 		ObjectOutputStream oos = new ObjectOutputStream(fos);
 		oos.writeObject(enclosures);
@@ -87,7 +89,7 @@ public class Main extends Application {
 		ois.close();
 	}
 	
-	public static void saveBackup() throws IOException {
+	public static void backupEnclosures() throws IOException {
 		String date = new Date().toString();
 		date = date.replaceAll(" ","_");
 		date = date.replaceAll(":","_");
@@ -97,4 +99,28 @@ public class Main extends Application {
 		oos.close();
 	}
 	
+	public static void saveUsers() throws IOException {
+		backupUsers();
+		FileOutputStream fos = new FileOutputStream("users.tmp");
+		ObjectOutputStream oos = new ObjectOutputStream(fos);
+		oos.writeObject(users);
+		oos.close();
+	}
+	
+	public static void loadUsers() throws ClassNotFoundException, IOException {
+		FileInputStream fis = new FileInputStream("users.tmp");
+		ObjectInputStream ois = new ObjectInputStream(fis);
+		users = (ArrayList<User>) ois.readObject();
+		ois.close();
+	}
+	
+	public static void backupUsers() throws IOException {
+		String date = new Date().toString();
+		date = date.replaceAll(" ","_");
+		date = date.replaceAll(":","_");
+		FileOutputStream fos = new FileOutputStream("backups/users/"+date+".backup");
+		ObjectOutputStream oos = new ObjectOutputStream(fos);
+		oos.writeObject(users);
+		oos.close();
+	}
 }
