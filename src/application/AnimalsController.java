@@ -87,8 +87,19 @@ public class AnimalsController extends Main implements Initializable{
 		stage.setScene(scene);
 	}
 	
-	public void EditAnimal(ActionEvent event) {
+	public void EditAnimal(ActionEvent event) throws IOException {
+		Animal animal = (Animal) listAnimals.getSelectionModel().getSelectedItem();
+		for(int i = 0; i < enclosures.size(); i++) {
+			if (enclosures.get(i).getAnimals().contains(animal)) {
+				int index = i;
+			}
+		}
 		
+		FXMLLoader loader =  new FXMLLoader(getClass().getResource("/EditAnimal.fxml"));// create and load() view
+		loader.load();
+		Stage stage = (Stage) butAddAnimal.getScene().getWindow();
+		Scene scene = new Scene(loader.getRoot());
+		stage.setScene(scene);
 	}
 	
 	public void Remove(ActionEvent event) {

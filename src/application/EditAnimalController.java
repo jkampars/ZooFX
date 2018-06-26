@@ -12,7 +12,7 @@ import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
-public class EditAnimalController {
+public class EditAnimalController extends AnimalsController{
 	
 	@FXML  
 	private Button butLogout;
@@ -54,7 +54,7 @@ public class EditAnimalController {
 	private ListView listTime;
 	
 	public void Enclosure(ActionEvent event) {
-
+		
 	}
 	
 	public void Logout(ActionEvent event) throws IOException {
