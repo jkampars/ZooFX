@@ -63,29 +63,15 @@ public class AddAnimalController extends Main{
 	
 	@FXML  
 	private ListView listFood;
-	
+
 	
 	public void Enclosure(ActionEvent event) {
-		//SelectEnclosure.getItems().addAll(enclosures);
-		//listSpecie.getItems().setAll(AnimalType.values());
-		model.Enclosure selectedType =  (model.Enclosure)SelectEnclosure.getSelectionModel().getSelectedItem();
-		listSpecie.getItems().clear();
-		listSpecie.getItems().add(selectedType.getType());
-		listSpecie.getItems().add(null);
-		SelectEnclosure.getItems().add(null);
+		
 	}
 	public void selectSpecie(ActionEvent event) {
-		AnimalType selectedSpecie = (AnimalType) listSpecie.getSelectionModel().getSelectedItem();
-		//SelectEnclosure.getItems().clear();
-		//ArrayList<model.Enclosure> matchingEnclosures = new ArrayList();
-		for (int i=0;i<enclosures.size();i++) {
-			if (enclosures.get(i).getType()!=selectedSpecie)
-				SelectEnclosure.getItems().remove(enclosures.get(i));
-		}
-		//SelectEnclosure.getItems().addAll(matchingEnclosures);
-		listSpecie.getItems().add(null);
-		SelectEnclosure.getItems().add(null);
+		
 	}
+	
 	public void Logout(ActionEvent event) throws IOException {
 		FXMLLoader loader =  new FXMLLoader(getClass().getResource("/Login.fxml"));// create and load() view
 		loader.load();
@@ -96,8 +82,47 @@ public class AddAnimalController extends Main{
 	
 	@SuppressWarnings("deprecation")
 	public void Add(ActionEvent event){
-		Diet serving = new Diet();
-		int hours = (int) comboHour.getSelectionModel().getSelectedItem();
+		int hours = 0 ;
+		int min = 0;
+		String food = null;
+		boolean correctInput = true;
+		if (comboHour.getSelectionModel().getSelectedItem() != null) {
+			hours = (int) comboHour.getSelectionModel().getSelectedItem();
+		}
+		else {
+			Alert alert = new Alert(AlertType.ERROR);
+            alert.setTitle("Hours not selected");
+            alert.setHeaderText("Select hours");
+            alert.show();
+            correctInput = false;
+		}
+		if (correctInput && comboMinutes.getSelectionModel().getSelectedItem()!=null) {
+			min = (int) comboMinutes.getSelectionModel().getSelectedItem();
+		}
+		else {
+			Alert alert = new Alert(AlertType.ERROR);
+            alert.setTitle("Minutes not selected");
+            alert.setHeaderText("Select minutes");
+            alert.show();
+            correctInput = false;
+		}
+		if (correctInput && txtFood.getText()!=null) {
+			food = txtFood.getText();
+		}
+		else {
+			Alert alert = new Alert(AlertType.ERROR);
+            alert.setTitle("Food not entered");
+            alert.setHeaderText("Enter food");
+            alert.show();
+            correctInput = false;
+		}
+		if (correctInput) {
+			Diet diet = new Diet();
+			diet.setFood(food);
+			diet.setMin(min);
+			diet.setHours(hours);
+			listFood.getItems().add(diet);
+		}
 		/*
 		ArrayList<String> food = new ArrayList<String>();
 		food.addAll(serving.getServingTypes());
@@ -152,6 +177,11 @@ public class AddAnimalController extends Main{
 			}
 		}
 		if (correctInput) {
+			//ArrayList<Diet> diet = new ArrayList();
+			//ArrayList<Diet> list = ObservableList<T>.stream().collect(Collectors.toList());
+			ArrayList<Diet> diet = new ArrayList<Diet>(listFood.getItems());
+			//diet = (ArrayList<Diet>) listFood.getItems();
+			animal.setDiet(diet);
 			selectedEnclosure.addAnimal(animal);
 			FXMLLoader loader =  new FXMLLoader(getClass().getResource("/Animals.fxml"));// create and load() view
 			loader.load();
@@ -173,11 +203,11 @@ public class AddAnimalController extends Main{
 		SelectEnclosure.getItems().addAll(enclosures);
 		listSpecie.getItems().setAll(AnimalType.values());
 		ArrayList<Integer> genNumbers = new ArrayList();
-		for (int i=1;i<25;i++) {
+		for (int i=0;i<24;i++) {
 			genNumbers.add(i);
 		}
 		comboHour.getItems().addAll(genNumbers);
-		for (int i=25;i<61;i++) {
+		for (int i=24;i<60;i++) {
 			genNumbers.add(i);
 		}
 		comboMinutes.getItems().addAll(genNumbers);
