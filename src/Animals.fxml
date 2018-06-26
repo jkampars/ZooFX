@@ -24,10 +24,8 @@
                   <Text layoutX="27.0" layoutY="61.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Name:" />
                   <Text layoutX="27.0" layoutY="87.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Specie:" />
                   <Text layoutX="27.0" layoutY="146.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Date when added to system:" />
-                  <Text layoutX="28.0" layoutY="198.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Food" />
-                  <Text layoutX="138.0" layoutY="198.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Feeding times" />
-                  <ListView fx:id="food" layoutX="28.0" layoutY="209.0" prefHeight="193.0" prefWidth="105.0" />
-                  <ListView fx:id="time" layoutX="138.0" layoutY="209.0" prefHeight="193.0" prefWidth="105.0" />
+                  <Text layoutX="28.0" layoutY="198.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Diet" />
+                  <ListView fx:id="food" layoutX="28.0" layoutY="209.0" prefHeight="193.0" prefWidth="206.0" />
                   <Text fx:id="txtID" layoutX="103.0" layoutY="38.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
                   <Text fx:id="txtName" layoutX="81.0" layoutY="61.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
                   <Text fx:id="txtSpecie" layoutX="81.0" layoutY="87.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />

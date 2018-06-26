@@ -2,6 +2,7 @@ package application;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 import javafx.event.ActionEvent;
@@ -19,6 +20,7 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import model.Animal;
 import model.AnimalType;
+import model.Diet;
 
 public class EditAnimalController extends Main implements Initializable{
 	
@@ -52,10 +54,10 @@ public class EditAnimalController extends Main implements Initializable{
 	private TextField txtFood;
 
 	@FXML  
-	private TextField txtHour;
+	private ComboBox comboHours;
 	
 	@FXML  
-	private TextField txtMinutes;
+	private ComboBox comboMinutes;
 	
 	@FXML  
 	private ListView listFood;
@@ -79,11 +81,51 @@ public class EditAnimalController extends Main implements Initializable{
 	}
 	
 	public void Add(ActionEvent event) {
-			
+		int hours = 0 ;
+		int min = 0;
+		String food = null;
+		boolean correctInput = true;
+		if (comboHours.getSelectionModel().getSelectedItem() != null) {
+			hours = (int) comboHours.getSelectionModel().getSelectedItem();
+		}
+		else {
+			Alert alert = new Alert(AlertType.ERROR);
+            alert.setTitle("Hours not selected");
+            alert.setHeaderText("Select hours");
+            alert.show();
+            correctInput = false;
+		}
+		if (correctInput && comboMinutes.getSelectionModel().getSelectedItem()!=null) {
+			min = (int) comboMinutes.getSelectionModel().getSelectedItem();
+		}
+		else {
+			Alert alert = new Alert(AlertType.ERROR);
+            alert.setTitle("Minutes not selected");
+            alert.setHeaderText("Select minutes");
+            alert.show();
+            correctInput = false;
+		}
+		if (correctInput && txtFood.getText()!=null) {
+			food = txtFood.getText();
+		}
+		else {
+			Alert alert = new Alert(AlertType.ERROR);
+            alert.setTitle("Food not entered");
+            alert.setHeaderText("Enter food");
+            alert.show();
+            correctInput = false;
+		}
+		if (correctInput) {
+			Diet diet = new Diet();
+			diet.setFood(food);
+			diet.setMin(min);
+			diet.setHours(hours);
+			listFood.getItems().add(diet);
+		}	
 	}
 	
 	public void Remove(ActionEvent event) {
-		
+		listFood.getItems().remove(listFood.getSelectionModel().getSelectedItem());
 	}
 	
 	public void Accept(ActionEvent event) throws IOException {
@@ -113,6 +155,9 @@ public class EditAnimalController extends Main implements Initializable{
 			}
 		}
 		if (correctInput) {
+			ArrayList<Diet> diet = new ArrayList<Diet>(listFood.getItems());
+			//diet = (ArrayList<Diet>) listFood.getItems();
+			selectedAnimal.setDiet(diet);
 			FXMLLoader loader =  new FXMLLoader(getClass().getResource("/Animals.fxml"));// create and load() view
 			loader.load();
 			Stage stage = (Stage) butCancel.getScene().getWindow();
@@ -148,6 +193,7 @@ public class EditAnimalController extends Main implements Initializable{
 			if (enclosures.get(i).getAnimals().contains(input))
 				SelectEnclosure.getSelectionModel().select(enclosures.get(i));
 		}
+		listFood.getItems().addAll(selectedAnimal.getDiet());
 		//System.out.println(selectedAnimal);
 	}
 	
@@ -160,6 +206,15 @@ public class EditAnimalController extends Main implements Initializable{
 					selectedAnimal=enclosures.get(i).getAnimals().get(j);
 			}
 		}
+		ArrayList<Integer> genNumbers = new ArrayList();
+		for (int i=0;i<24;i++) {
+			genNumbers.add(i);
+		}
+		comboHours.getItems().addAll(genNumbers);
+		for (int i=24;i<60;i++) {
+			genNumbers.add(i);
+		}
+		comboMinutes.getItems().addAll(genNumbers);
 		//System.out.println(txtName.getText());
 	}
 }
