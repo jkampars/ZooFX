@@ -47,7 +47,7 @@ public class ManageUsersController {
 		
 	}
 	
-	public void Logout(ActionEvent event) throws IOException {
+	public void Logout(ActionEvent event) throws IOException { 
 		FXMLLoader loader =  new FXMLLoader(getClass().getResource("/Login.fxml"));// create and load() view
 		loader.load();
 		Stage stage = (Stage) butLogout.getScene().getWindow();
