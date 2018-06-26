@@ -43,9 +43,6 @@ public class EnclosuresController extends Main implements Initializable{
 	private Button butEditEnclosure;
 	
 	@FXML  
-	private Button butMoveAnimal;
-	
-	@FXML  
 	private Button butRemoveAnimal;
 	
 	@FXML  
@@ -158,32 +155,15 @@ public class EnclosuresController extends Main implements Initializable{
 			stage.setScene(scene);
 		}
 	}
-	
-	public void MoveAnimal(ActionEvent event) throws IOException {
-		FXMLLoader loader =  new FXMLLoader(getClass().getResource("/MoveAnimal.fxml"));// create and load() view
-		loader.load();
-		Stage stage = (Stage) butMoveAnimal.getScene().getWindow();
-		Scene scene = new Scene(loader.getRoot());
-		stage.setScene(scene);
-	}
-	
 
-	public void RemoveAnimal1(ActionEvent event) {
-		
-	}
-	public void RemoveAnimal(ActionEvent event) {
+	public void RemoveAnimal(ActionEvent event) throws IOException {
 		Animal animal = (Animal) listAnimals.getSelectionModel().getSelectedItem();
 		for(int i = 0; i < enclosures.size(); i++) {
 			if (enclosures.get(i).getAnimals().contains(animal)) {
 				enclosures.get(i).getAnimals().remove(animal);
 
-				
-				
-				
-				//te vajag kaut ko citu reinitialize!!!
 				ArrayList<Animal> animals = new ArrayList<Animal>();
 				animals.addAll(((Enclosure) listEnclosures.getSelectionModel().getSelectedItem()).getAnimals());
-				
 				
 				ObservableList<Animal> obslist = FXCollections.observableArrayList(animals);
 				listAnimals.setItems(obslist);
@@ -197,7 +177,6 @@ public class EnclosuresController extends Main implements Initializable{
 				ObservableList<Animal> obslist2 = FXCollections.observableArrayList(selected.getAnimals());
 				listAnimals.setItems(obslist2);
 				
-				
 				break;
 			}
 		}
@@ -206,7 +185,6 @@ public class EnclosuresController extends Main implements Initializable{
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		// TODO Auto-generated method stub
-		///listEnclosures.setItems((ObservableList) enclosures);
 		ObservableList<Enclosure> obslist = FXCollections.observableArrayList(enclosures);
 		listEnclosures.setItems(obslist);
 	}
