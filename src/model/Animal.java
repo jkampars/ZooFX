@@ -71,7 +71,8 @@ public class Animal extends Main{
 	}
 	public void moveTo(Enclosure moveTo) {
 		if (moveTo.getType()==type) {
-			getEnclosure().removeAnimal(this);
+			if (getEnclosure()!=null)
+				getEnclosure().removeAnimal(this);
 			moveTo.addAnimal(this);
 		}
 	}

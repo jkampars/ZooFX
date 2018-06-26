@@ -23,7 +23,7 @@ public class UserDB {
 		createConnection();
 		statement = con.createStatement();
 		//statement.executeUpdate("DROP TABLE IF EXISTS Students");
-		statement.executeUpdate("INSERT INTO users (username, password, usertype) VALUES ('admin','123',2);");
+		//statement.executeUpdate("INSERT INTO users (username, password, usertype) VALUES ('admin','123',2);");
 	}
 	
 	public ArrayList<String> getUsernames() throws SQLException {
