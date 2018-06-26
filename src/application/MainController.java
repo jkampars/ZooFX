@@ -13,6 +13,8 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.control.Alert.AlertType;
 import javafx.stage.Stage;
 import model.UserType;
@@ -34,6 +36,8 @@ public class MainController extends Main implements Initializable{
 	@FXML
 	private Button butTickets; 
 	
+	@FXML
+	private ImageView imageview;
 	
 	public void Logout(ActionEvent event) throws IOException {
 		FXMLLoader loader =  new FXMLLoader(getClass().getResource("/Login.fxml"));// create and load() view
@@ -86,6 +90,9 @@ public class MainController extends Main implements Initializable{
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		// TODO Auto-generated method stub
+		Image image = new Image("/MANDARINS.jpg");
+		imageview.setImage(image);
+		
 		System.out.print(currentUser.getUserType());
 		if (currentUser.getUserType()!=UserType.ADMIN)
 			butUsers.setVisible(false);
