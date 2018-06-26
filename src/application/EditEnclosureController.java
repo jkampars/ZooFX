@@ -46,12 +46,38 @@ public class EditEnclosureController extends Main implements Initializable{
 	}
 	
 	public void Accept(ActionEvent event) throws IOException {
-		System.out.println(selectedEnclosure);
-		FXMLLoader loader =  new FXMLLoader(getClass().getResource("/Enclosures.fxml"));// create and load() view
-		loader.load();
-		Stage stage = (Stage) butAccept.getScene().getWindow();
-		Scene scene = new Scene(loader.getRoot());
-		stage.setScene(scene);
+		///System.out.println(selectedEnclosure);
+		boolean correctInput = true;
+		if(Enclosure.checkName(txtName.getText())) {
+			selectedEnclosure.setName(txtName.getText());
+			selectedEnclosure.setType((AnimalType) selectType.getSelectionModel().getSelectedItem());
+			if(txtCapacity.getText().matches("[0-9]*")) {
+				int capacity = Integer.parseInt(txtCapacity.getText());
+				selectedEnclosure.setMAX_CAPACITY(capacity);
+			}
+			else {
+				Alert alert = new Alert(AlertType.ERROR);
+	            alert.setTitle("Enclosure size input fail");
+	            alert.setHeaderText("Enclosure size consists only of numbers");
+	            alert.show();
+	            correctInput = false;
+			}
+		}
+		else {
+			Alert alert = new Alert(AlertType.ERROR);
+            alert.setTitle("Enclosure name input fail");
+            alert.setHeaderText("Enclosure name consists only of letters and numbers");
+            alert.show();
+            correctInput = false;
+		}
+		
+		if(correctInput) {
+			FXMLLoader loader =  new FXMLLoader(getClass().getResource("/Enclosures.fxml"));// create and load() view
+			loader.load();
+			Stage stage = (Stage) butAccept.getScene().getWindow();
+			Scene scene = new Scene(loader.getRoot());
+			stage.setScene(scene);
+		}
 	}
 	
 	public void Cancel(ActionEvent event) throws IOException {
