@@ -1,18 +1,25 @@
 package application;
 
 import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
+import javafx.scene.control.Alert.AlertType;
 import javafx.stage.Stage;
+import model.AnimalType;
+import model.Enclosure;
 
-public class EditEnclosureController {
-
+public class EditEnclosureController extends Main implements Initializable{
+	private Enclosure selectedEnclosure;
 	@FXML  
 	private Button butLogout;
 	
@@ -40,7 +47,6 @@ public class EditEnclosureController {
 	}
 	
 	public void Accept(ActionEvent event) throws IOException {
-		boolean correctInput = true;
 		
 		FXMLLoader loader =  new FXMLLoader(getClass().getResource("/Enclosures.fxml"));// create and load() view
 		loader.load();
@@ -58,6 +64,12 @@ public class EditEnclosureController {
 	}
 	
 	public void Select(ActionEvent event) {
+		
+	}
+
+	@Override
+	public void initialize(URL location, ResourceBundle resources) {
+		// TODO Auto-generated method stub
 		
 	}
 }

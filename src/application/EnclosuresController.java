@@ -3,6 +3,8 @@ package application;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
 import java.util.ResourceBundle;
 
 import javafx.collections.FXCollections;
@@ -103,22 +105,30 @@ public class EnclosuresController extends Main implements Initializable{
 	}
 	
 	public void RemoveEnclosure(ActionEvent event) throws IOException {
-		
-		if(enclosures.get(enclosures.indexOf(listEnclosures.getSelectionModel().getSelectedItem())).animalsIsEmpty() == true){
-			enclosures.remove(listEnclosures.getSelectionModel().getSelectedItem());
+		if(listEnclosures.getSelectionModel().getSelectedItem() == null) {
+			Alert alert = new Alert(AlertType.ERROR);
+	        alert.setTitle("Remove enclosure error");
+	        alert.setHeaderText("No enclosure selected");
+	        alert.setContentText("Please select an enclosure to remove it");
+	        alert.show();
 		}
 		else {
-			Alert alert = new Alert(AlertType.ERROR);
-            alert.setTitle("Remove enclosure error");
-            alert.setHeaderText("Cant remove enclosure with animals in it");
-            alert.setContentText("Please remove animals from enclosure to remove it");
-            alert.show();
+			if(enclosures.get(enclosures.indexOf(listEnclosures.getSelectionModel().getSelectedItem())).animalsIsEmpty() == true){
+				enclosures.remove(listEnclosures.getSelectionModel().getSelectedItem());
+			}
+			else {
+				Alert alert = new Alert(AlertType.ERROR);
+		        alert.setTitle("Remove enclosure error");
+		        alert.setHeaderText("Cant remove enclosure with animals in it");
+		        alert.setContentText("Please remove animals from enclosure to remove it");
+		        alert.show();
+			}
+			FXMLLoader loader =  new FXMLLoader(getClass().getResource("/Enclosures.fxml"));// create and load() view
+			loader.load();
+			Stage stage = (Stage) butRemoveEnclosure.getScene().getWindow();
+			Scene scene = new Scene(loader.getRoot());
+			stage.setScene(scene);
 		}
-		FXMLLoader loader =  new FXMLLoader(getClass().getResource("/Enclosures.fxml"));// create and load() view
-		loader.load();
-		Stage stage = (Stage) butRemoveEnclosure.getScene().getWindow();
-		Scene scene = new Scene(loader.getRoot());
-		stage.setScene(scene);
 	}
 	
 	public void EditEnclosure(ActionEvent event) throws IOException {
@@ -189,7 +199,7 @@ public class EnclosuresController extends Main implements Initializable{
 			}
 		}
 	}
-
+	
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		// TODO Auto-generated method stub
