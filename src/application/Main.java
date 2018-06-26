@@ -45,6 +45,7 @@ public class Main extends Application {
 	public static void main(String[] args) throws ClassNotFoundException, SQLException, IOException {
 		
 		//UserDB database = new UserDB();
+		/**
 		users.add(new User("1","1"));
 		users.add(new User("user","pass"));
 		users.add(new User("admin","123"));
