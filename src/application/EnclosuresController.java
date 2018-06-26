@@ -102,6 +102,7 @@ public class EnclosuresController extends Main implements Initializable{
 	}
 	
 	public void RemoveEnclosure(ActionEvent event) throws IOException {
+		
 		if(enclosures.get(enclosures.indexOf(listEnclosures.getSelectionModel().getSelectedItem())).animalsIsEmpty() == true){
 			enclosures.remove(listEnclosures.getSelectionModel().getSelectedItem());
 		}
