@@ -24,8 +24,8 @@ import model.Diet;
 import model.Enclosure;
 
 public class AnimalsController extends Main implements Initializable{
-	
-	@FXML  
+	 
+	@FXML   
 	private Button butLogout;
 	
 	@FXML  
@@ -45,9 +45,6 @@ public class AnimalsController extends Main implements Initializable{
 	
 	@FXML  
 	private ListView food;
-	
-	@FXML  
-	private ListView time;
 	
 	@FXML  
 	private Text txtID;
@@ -113,28 +110,17 @@ public class AnimalsController extends Main implements Initializable{
 		}
 	}
 	
-	public void Remove(ActionEvent event) {
+	public void Remove(ActionEvent event) throws IOException {
 		Animal animal = (Animal) listAnimals.getSelectionModel().getSelectedItem();
 		for(int i = 0; i < enclosures.size(); i++) {
-			if (enclosures.get(i).getAnimals().contains(animal)) {
-				enclosures.get(i).getAnimals().remove(animal);
+			if (enclosures.get(i).getAnimals().contains(animal)) {  
+				enclosures.get(i).getAnimals().remove(animal); 
 
-				
-				
-				
-				//te vajag kaut ko citu reinitialize!!!
-				ArrayList<Animal> allAnimals = new ArrayList<Animal>();
-				for(int j = 0; j < enclosures.size(); j++) {
-					allAnimals.addAll(enclosures.get(j).getAnimals());
-				}
-				
-				ObservableList<Animal> obslist = FXCollections.observableArrayList(allAnimals);
-				listAnimals.setItems(obslist);
-				
-				
-				
-				
-				break;
+				FXMLLoader loader =  new FXMLLoader(getClass().getResource("/Animals.fxml"));// create and load() view
+				loader.load();
+				Stage stage = (Stage) butRemoveAnimal.getScene().getWindow();
+				Scene scene = new Scene(loader.getRoot());
+				stage.setScene(scene);
 			}
 		}
 	} 
@@ -151,7 +137,7 @@ public class AnimalsController extends Main implements Initializable{
 				txtSpecie.setText(String.valueOf(animal.getType())); 
 				txtEnclosure.setText(String.valueOf(enclosures.get(i).toString())); 
 				txtDate.setText(animal.getDateAdded().toGMTString()); 
-
+ 
 				ObservableList<Diet> obslist1 = FXCollections.observableArrayList(animal.getDiet());
 				food.setItems(obslist1); 
 			}
@@ -164,7 +150,7 @@ public class AnimalsController extends Main implements Initializable{
 		///listEnclosures.setItems((ObservableList) enclosures);
 		ArrayList<Animal> allAnimals = new ArrayList<Animal>();
 		for(int i = 0; i < enclosures.size(); i++) {
-			allAnimals.addAll(enclosures.get(i).getAnimals());
+			allAnimals.addAll(enclosures.get(i).getAnimals());   
 		}
 		
 		ObservableList<Animal> obslist = FXCollections.observableArrayList(allAnimals);
