@@ -51,7 +51,7 @@ public class Animal {
 		if(name.matches("[a-zA-Z0-9]*")) {
 			return true;
 		}
-		else {
+		else { 
 			return false;
 		}
 	}

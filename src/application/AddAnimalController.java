@@ -59,7 +59,7 @@ public class AddAnimalController extends Main{
 	private ListView listFood;
 	
 	@FXML  
-	private ListView listTime;
+	private ListView listTime; 
 	
 	private ArrayList<Diet> diet = new ArrayList<Diet>();
 	
