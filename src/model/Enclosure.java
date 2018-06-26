@@ -50,7 +50,7 @@ public class Enclosure {
 	public int getId() {
 		return id;
 	}
-	public boolean checkName(String name) {
+	public static boolean checkName(String name) {
 		if (name.matches("[a-zA-Z0-9]*")) 
 			return true;
 		else 
