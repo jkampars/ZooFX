@@ -35,10 +35,10 @@
                                                 <Text layoutX="27.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Name:" />
                                                 <Text layoutX="27.0" layoutY="75.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Capacity" />
                                                 <Text layoutX="27.0" layoutY="100.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ID:" wrappingWidth="18.208984375" />
-                                                <Text fx:id="txtName" layoutX="72.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
-                                                <Text fx:id="txtType" layoutX="72.0" layoutY="51.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
-                                                <Text fx:id="txtCapacity" layoutX="83.0" layoutY="75.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
-                                                <Text fx:id="txtID" layoutX="50.0" layoutY="100.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
+                                                <Text text=" " fx:id="txtName" layoutX="72.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                                <Text text=" " fx:id="txtType" layoutX="72.0" layoutY="51.0" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                                <Text text=" " fx:id="txtCapacity" layoutX="83.0" layoutY="75.0" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                                <Text text=" " fx:id="txtID" layoutX="50.0" layoutY="100.0" strokeType="OUTSIDE" strokeWidth="0.0" />
                                              </children>
                                           </AnchorPane>
                                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="267.0" prefWidth="244.0">
@@ -57,8 +57,7 @@
                </items>
             </SplitPane>
             <Button fx:id="butRemoveEnclosure" layoutX="555.0" layoutY="213.0" mnemonicParsing="false" onAction="#RemoveEnclosure" prefHeight="25.0" prefWidth="118.0" text="Remove enclosure" />
-            <Button fx:id="butMoveAnimal" layoutX="555.0" layoutY="325.0" mnemonicParsing="false" onAction="#MoveAnimal" prefHeight="25.0" prefWidth="118.0" text="Move animal" />
-            <Button fx:id="butRemoveAnimal" layoutX="555.0" layoutY="370.0" mnemonicParsing="false" onAction="#RemoveAnimal" prefHeight="25.0" prefWidth="118.0" text="Remove animal" />
+            <Button fx:id="butRemoveAnimal" layoutX="555.0" layoutY="338.0" mnemonicParsing="false" onAction="#RemoveAnimal" prefHeight="25.0" prefWidth="118.0" text="Remove animal" />
             <Button fx:id="butEditEnclosure" layoutX="555.0" layoutY="251.0" mnemonicParsing="false" onAction="#EditEnclosure" prefHeight="25.0" prefWidth="118.0" text="Edit enclosure" />
          </children>
       </AnchorPane>

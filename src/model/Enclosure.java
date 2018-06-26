@@ -6,8 +6,8 @@ import java.util.List;
 public class Enclosure {
 	private int id;
 	private int MAX_CAPACITY;
-	private int current_capacity;
 	private ArrayList<Animal> animals = new ArrayList<>();
+	//private int current_capacity = animals.size();
 	public static int counter = 1000;
 	private String name;
 	private AnimalType type;
@@ -18,11 +18,11 @@ public class Enclosure {
 		MAX_CAPACITY = mAX_CAPACITY;
 	}
 	public int getCurrent_capacity() {
-		return current_capacity;
+		return animals.size()/*current_capacity*/;
 	}
-	public void setCurrent_capacity(int current_capacity) {
+	/*public void setCurrent_capacity(int current_capacity) {
 		this.current_capacity = current_capacity;
-	}
+	}*/
 	public ArrayList<Animal> getAnimals() {
 		return animals;
 	}
@@ -58,25 +58,25 @@ public class Enclosure {
 	}
 	public void addAnimal(Animal animal) {
 		animals.add(animal);
-		current_capacity++;
+		//current_capacity++;
 	}
 	public void removeAnimal(int index) {
 		animals.remove(index);
-		current_capacity--;
+		//current_capacity--;
 	}
 	public Enclosure() {
 		counter++;
 		id = counter + 1;
 		name = "";
 		MAX_CAPACITY = 0;
-		current_capacity = 0;
+		//current_capacity = 0;
 		type = AnimalType.NONE;
 	}
-	public Enclosure(int mAX_CAPACITY, int current_capacity, String name, AnimalType type) {
+	public Enclosure(int mAX_CAPACITY/*, int current_capacity*/, String name, AnimalType type) {
 		counter++;
 		id = counter + 1;
 		setMAX_CAPACITY(mAX_CAPACITY);
-		setCurrent_capacity(current_capacity);
+		//setCurrent_capacity(current_capacity);
 		setName(name);
 		setType(type);
 	}
@@ -93,7 +93,7 @@ public class Enclosure {
 		}
 	}
 	public boolean isEmpty() {
-		if (current_capacity==0)
+		if (animals.size()/*current_capacity*/==0)
 			return true;
 		else
 			return false;
@@ -101,11 +101,11 @@ public class Enclosure {
 	public void removeAnimal(Animal animal) {
 		if (animals.contains(animal)) {
 			animals.remove(animal);
-			current_capacity--;
+			//current_capacity--;
 		}
 	}
 	public boolean isFull() {
-		if (current_capacity==MAX_CAPACITY)
+		if (animals.size()/*current_capacity*/==MAX_CAPACITY)
 			return true;
 		else
 			return false;

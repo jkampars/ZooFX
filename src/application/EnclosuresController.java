@@ -2,6 +2,7 @@ package application;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 import javafx.collections.FXCollections;
@@ -37,9 +38,6 @@ public class EnclosuresController extends Main implements Initializable{
 	
 	@FXML  
 	private Button butEditEnclosure;
-	
-	@FXML  
-	private Button butMoveAnimal;
 	
 	@FXML  
 	private Button butRemoveAnimal;
@@ -124,17 +122,36 @@ public class EnclosuresController extends Main implements Initializable{
 		
 	}
 	
-	public void MoveAnimal(ActionEvent event) throws IOException {
-		FXMLLoader loader =  new FXMLLoader(getClass().getResource("/MoveAnimal.fxml"));// create and load() view
-		loader.load();
-		Stage stage = (Stage) butMoveAnimal.getScene().getWindow();
-		Scene scene = new Scene(loader.getRoot());
-		stage.setScene(scene);
-	}
-	
-
 	public void RemoveAnimal(ActionEvent event) {
-		
+		Animal animal = (Animal) listAnimals.getSelectionModel().getSelectedItem();
+		for(int i = 0; i < enclosures.size(); i++) {
+			if (enclosures.get(i).getAnimals().contains(animal)) {
+				enclosures.get(i).getAnimals().remove(animal);
+
+				
+				
+				
+				//te vajag kaut ko citu reinitialize!!!
+				ArrayList<Animal> animals = new ArrayList<Animal>();
+				animals.addAll(((Enclosure) listEnclosures.getSelectionModel().getSelectedItem()).getAnimals());
+				
+				
+				ObservableList<Animal> obslist = FXCollections.observableArrayList(animals);
+				listAnimals.setItems(obslist);
+				
+				Enclosure selected = (Enclosure) listEnclosures.getSelectionModel().getSelectedItem();
+				txtName.setText(selected.getName());
+				txtType.setText(selected.getType().name());
+				txtCapacity.setText(selected.getCurrent_capacity()+"/"+selected.getMAX_CAPACITY());
+				txtID.setText(Integer.toString(selected.getId()));
+				
+				ObservableList<Animal> obslist2 = FXCollections.observableArrayList(selected.getAnimals());
+				listAnimals.setItems(obslist2);
+				
+				
+				break;
+			}
+		}
 	}
 
 	@Override

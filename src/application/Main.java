@@ -45,9 +45,9 @@ public class Main extends Application {
 		users.get(3).setAdmin();
 		users.get(2).setAdmin();
 		users.get(1).setUser();
-		Enclosure buris1 = new Enclosure(10,0,"Putni",AnimalType.BIRD);
-		Enclosure buris2 = new Enclosure(5,0,"Zivis",AnimalType.FISH);
-		Enclosure buris3 = new Enclosure(3,0,"Lapsas",AnimalType.MAMMAL);
+		Enclosure buris1 = new Enclosure(10,"Putni",AnimalType.BIRD);
+		Enclosure buris2 = new Enclosure(5,"Zivis",AnimalType.FISH);
+		Enclosure buris3 = new Enclosure(3,"Lapsas",AnimalType.MAMMAL);
 		buris1.addAnimal(new Animal("Dzenis",AnimalType.BIRD));
 		buris1.addAnimal(new Animal("Zilite",AnimalType.BIRD));
 		buris2.addAnimal(new Animal("Karpa",AnimalType.FISH));
