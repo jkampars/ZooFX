@@ -40,6 +40,9 @@ public class EnclosuresController extends Main implements Initializable{
 	private Button butEditEnclosure;
 	
 	@FXML  
+	private Button butMoveAnimal;
+	
+	@FXML  
 	private Button butRemoveAnimal;
 	
 	@FXML  
@@ -118,10 +121,43 @@ public class EnclosuresController extends Main implements Initializable{
 		stage.setScene(scene);
 	}
 	
-	public void EditEnclosure(ActionEvent event) {
-		
+	public void EditEnclosure(ActionEvent event) throws IOException {
+		if(listEnclosures.getSelectionModel().getSelectedItem() == null) {
+			Alert alert = new Alert(AlertType.ERROR);
+            alert.setTitle("Edit enclosure error");
+            alert.setHeaderText("No enclosure selected");
+            alert.setContentText("Please select an enclosure to edit it");
+            alert.show();
+		}
+		else if(!((Enclosure) listEnclosures.getSelectionModel().getSelectedItem()).isEmpty()) {
+			Alert alert = new Alert(AlertType.ERROR);
+            alert.setTitle("Edit enclosure error");
+            alert.setHeaderText("Enclosure is not empty");
+            alert.setContentText("Please empty the enclosure to edit it");
+            alert.show();
+		}
+		else {
+			Enclosure enclosure = (Enclosure) listEnclosures.getSelectionModel().getSelectedItem();
+			FXMLLoader loader =  new FXMLLoader(getClass().getResource("/EditEnclosure.fxml"));// create and load() view
+			loader.load();
+			Stage stage = (Stage) butEditEnclosure.getScene().getWindow();
+			Scene scene = new Scene(loader.getRoot());
+			stage.setScene(scene);
+		}
 	}
 	
+	public void MoveAnimal(ActionEvent event) throws IOException {
+		FXMLLoader loader =  new FXMLLoader(getClass().getResource("/MoveAnimal.fxml"));// create and load() view
+		loader.load();
+		Stage stage = (Stage) butMoveAnimal.getScene().getWindow();
+		Scene scene = new Scene(loader.getRoot());
+		stage.setScene(scene);
+	}
+	
+
+	public void RemoveAnimal1(ActionEvent event) {
+		
+	}
 	public void RemoveAnimal(ActionEvent event) {
 		Animal animal = (Animal) listAnimals.getSelectionModel().getSelectedItem();
 		for(int i = 0; i < enclosures.size(); i++) {
