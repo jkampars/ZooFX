@@ -55,7 +55,7 @@ public class Animal extends Main{
 		}
 		else { 
 			return false;
-		}
+		} 
 	}
 	public Diet getDiet() {
 		return diet;
