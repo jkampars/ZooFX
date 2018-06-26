@@ -45,7 +45,7 @@ public class MainController extends Main implements Initializable{
 	
 	public void ManageUsers(ActionEvent event) throws IOException {
 		if (currentUser.getUserType()==UserType.ADMIN) {
-			FXMLLoader loader =  new FXMLLoader(getClass().getResource("/Login.fxml"));// create and load() view
+			FXMLLoader loader =  new FXMLLoader(getClass().getResource("/ManageUsers.fxml"));// create and load() view
 			loader.load();
 			Stage stage = (Stage) butUsers.getScene().getWindow();
 			Scene scene = new Scene(loader.getRoot());
