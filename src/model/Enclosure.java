@@ -62,6 +62,7 @@ public class Enclosure {
 	}
 	public void removeAnimal(int index) {
 		animals.remove(index);
+		current_capacity--;
 	}
 	public Enclosure() {
 		counter++;
@@ -90,6 +91,24 @@ public class Enclosure {
 		else {
 			return false;
 		}
+	}
+	public boolean isEmpty() {
+		if (current_capacity==0)
+			return true;
+		else
+			return false;
+	}
+	public void removeAnimal(Animal animal) {
+		if (animals.contains(animal)) {
+			animals.remove(animal);
+			current_capacity--;
+		}
+	}
+	public boolean isFull() {
+		if (current_capacity==MAX_CAPACITY)
+			return true;
+		else
+			return false;
 	}
 }
 

@@ -4,7 +4,9 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 
-public class Animal { 
+import application.Main;
+
+public class Animal extends Main{ 
 	private int ID;
 	private String name;
 	private AnimalType type;
@@ -47,7 +49,7 @@ public class Animal {
 		ID = counter;
 		dateAdded = new Date();
 	}
-	public boolean checkName(String name) {
+	public static boolean checkName(String name) {
 		if(name.matches("[a-zA-Z0-9]*")) {
 			return true;
 		}
@@ -67,5 +69,17 @@ public class Animal {
 	public void setDiet(ArrayList<Diet> diet) {
 		this.diet = diet;
 	}
-	
+	public void moveTo(Enclosure moveTo) {
+		if (moveTo.getType()==type) {
+			getEnclosure().removeAnimal(this);
+			moveTo.addAnimal(this);
+		}
+	}
+	public Enclosure getEnclosure() {
+		for (int i=0;i<enclosures.size();i++) {
+			if (enclosures.get(i).getAnimals().contains(this))
+				return enclosures.get(i);
+		}
+		return null;
+	}
 }

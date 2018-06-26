@@ -44,7 +44,7 @@
                               </AnchorPane>
                            </items>
                         </SplitPane>
-                        <ComboBox fx:id="SelectEnclosure" layoutX="71.0" layoutY="63.0" onMouseClicked="#Enclosure" prefWidth="150.0" />
+                        <ComboBox fx:id="SelectEnclosure" layoutX="71.0" layoutY="63.0" onAction="#Enclosure" prefWidth="150.0" />
                         <Button fx:id="butRemove" layoutX="246.0" layoutY="210.0" mnemonicParsing="false" onAction="#Remove" text="Remove" />
                         <Text layoutX="23.0" layoutY="47.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Name:" />
                         <TextField fx:id="txtName" layoutX="66.0" layoutY="30.0" prefHeight="25.0" prefWidth="161.0" promptText="Name (Can be left empty)" />
