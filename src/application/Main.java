@@ -1,7 +1,13 @@
 package application;
 	
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Date;
 
 import javafx.application.Application;
 import javafx.fxml.FXML;
@@ -36,8 +42,9 @@ public class Main extends Application {
 	}
 	
 	
-	public static void main(String[] args) throws ClassNotFoundException, SQLException {
-		UserDB database = new UserDB();
+	public static void main(String[] args) throws ClassNotFoundException, SQLException, IOException {
+		
+		//UserDB database = new UserDB();
 		users.add(new User("1","1"));
 		users.add(new User("user","pass"));
 		users.add(new User("admin","123"));
@@ -45,6 +52,7 @@ public class Main extends Application {
 		users.get(3).setAdmin();
 		users.get(2).setAdmin();
 		users.get(1).setUser();
+		/**
 		Enclosure buris1 = new Enclosure(10,"Putni",AnimalType.BIRD);
 		Enclosure buris2 = new Enclosure(5,"Zivis",AnimalType.FISH);
 		Enclosure buris3 = new Enclosure(3,"Lapsas",AnimalType.MAMMAL);
@@ -58,8 +66,35 @@ public class Main extends Application {
 		enclosures.add(buris1);
 		enclosures.add(buris2);
 		enclosures.add(buris3);
-		System.out.println(database.getUsernames());
+		**/
+		loadEnclosures();
 		launch(args);
+		saveEnclosures();
 	}
-
+	
+	public static void saveEnclosures() throws IOException {
+		saveBackup();
+		FileOutputStream fos = new FileOutputStream("enclosures.tmp");
+		ObjectOutputStream oos = new ObjectOutputStream(fos);
+		oos.writeObject(enclosures);
+		oos.close();
+	}
+	
+	public static void loadEnclosures() throws ClassNotFoundException, IOException {
+		FileInputStream fis = new FileInputStream("enclosures.tmp");
+		ObjectInputStream ois = new ObjectInputStream(fis);
+		enclosures = (ArrayList<Enclosure>) ois.readObject();
+		ois.close();
+	}
+	
+	public static void saveBackup() throws IOException {
+		String date = new Date().toString();
+		date = date.replaceAll(" ","_");
+		date = date.replaceAll(":","_");
+		FileOutputStream fos = new FileOutputStream("backups/enclosures/"+date+".backup");
+		ObjectOutputStream oos = new ObjectOutputStream(fos);
+		oos.writeObject(enclosures);
+		oos.close();
+	}
+	
 }

@@ -1,10 +1,11 @@
 package model;
 
+import java.io.Serializable;
 import java.sql.Time;
 import java.util.ArrayList;
 import java.util.Date;
 
-public class Diet {
+public class Diet implements Serializable{
 	private int hours;
 	private int min;
 	private String food;
@@ -29,7 +30,14 @@ public class Diet {
 	}
 	
 	public String toString(){
-		return hours+":"+min+" - "+food;
+		if (hours<10 && min<10)
+			return "0"+hours+":0"+min+" - "+food;
+		else if (hours<10)
+			return "0"+hours+":"+min+" - "+food;
+		else if (min<10)
+			return hours+":0"+min+" - "+food;
+		else
+			return hours+":"+min+" - "+food;
 	}
 }
 

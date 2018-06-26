@@ -1,12 +1,13 @@
 package model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 
 import application.Main;
 
-public class Animal extends Main{ 
+public class Animal extends Main implements Serializable{ 
 	private int ID;
 	private String name;
 	private AnimalType type;

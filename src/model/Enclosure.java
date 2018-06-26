@@ -1,9 +1,10 @@
 package model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Enclosure {
+public class Enclosure implements Serializable{
 	private int id;
 	private int MAX_CAPACITY;
 	private ArrayList<Animal> animals = new ArrayList<>();
