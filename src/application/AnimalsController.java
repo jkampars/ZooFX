@@ -128,9 +128,6 @@ public class AnimalsController extends Main implements Initializable{
 	public void Info(MouseEvent event) {
 		Animal animal = (Animal) listAnimals.getSelectionModel().getSelectedItem();
 		for(int i = 0; i < enclosures.size(); i++) {
-			//if (enclosures.get(i).contains(animal)) {
-			//ArrayList<Animal>  temp = new ArrayList<Animal>();
-			//temp = enclosures.get(i).getAnimals();
 			if (enclosures.get(i).getAnimals().contains(animal)) {
 				txtID.setText(String.valueOf(animal.getID()));
 				txtName.setText(String.valueOf(animal.getName()));  
@@ -147,7 +144,6 @@ public class AnimalsController extends Main implements Initializable{
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		// TODO Auto-generated method stub
-		///listEnclosures.setItems((ObservableList) enclosures);
 		ArrayList<Animal> allAnimals = new ArrayList<Animal>();
 		for(int i = 0; i < enclosures.size(); i++) {
 			allAnimals.addAll(enclosures.get(i).getAnimals());   
