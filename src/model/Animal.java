@@ -64,4 +64,8 @@ public class Animal {
 	public String toString() {
 		return name+" "+ID;
 	}
+	public void setDiet(ArrayList<Diet> diet) {
+		this.diet = diet;
+	}
+	
 }
