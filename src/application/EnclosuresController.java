@@ -11,8 +11,10 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
@@ -99,8 +101,22 @@ public class EnclosuresController extends Main implements Initializable{
 		stage.setScene(scene);
 	}
 	
-	public void RemoveEnclosure(ActionEvent event) {
-		
+	public void RemoveEnclosure(ActionEvent event) throws IOException {
+		if(enclosures.get(enclosures.indexOf(listEnclosures.getSelectionModel().getSelectedItem())).animalsIsEmpty() == true){
+			enclosures.remove(listEnclosures.getSelectionModel().getSelectedItem());
+		}
+		else {
+			Alert alert = new Alert(AlertType.ERROR);
+            alert.setTitle("Remove enclosure error");
+            alert.setHeaderText("Cant remove enclosure with animals in it");
+            alert.setContentText("Please remove animals from enclosure to remove it");
+            alert.show();
+		}
+		FXMLLoader loader =  new FXMLLoader(getClass().getResource("/Enclosures.fxml"));// create and load() view
+		loader.load();
+		Stage stage = (Stage) butAddEnclosure.getScene().getWindow();
+		Scene scene = new Scene(loader.getRoot());
+		stage.setScene(scene);
 	}
 	
 	public void EditEnclosure(ActionEvent event) {
