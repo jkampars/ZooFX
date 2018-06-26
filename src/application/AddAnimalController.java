@@ -137,7 +137,8 @@ public class AddAnimalController extends Main{
 	
 	
 	public void Remove(ActionEvent event) {
-		
+		listFood.getItems().remove(listFood.getSelectionModel().getSelectedItem());
+
 	}
 	
 	public void Accept(ActionEvent event) throws IOException {
