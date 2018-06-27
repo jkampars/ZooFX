@@ -26,6 +26,7 @@ public class Main extends Application {
 	public static ArrayList<User> users = new ArrayList();
 	public static User currentUser = new User();
 	public static ArrayList<Enclosure> enclosures = new ArrayList();
+	public static int counter;
 	@Override
 	public void start(Stage primaryStage) {
 		try {
@@ -45,6 +46,7 @@ public class Main extends Application {
 	public static void main(String[] args) throws ClassNotFoundException, SQLException, IOException {
 		
 		//UserDB database = new UserDB();
+		//counter = 1013;
 		/**
 		users.add(new User("1","1"));
 		users.add(new User("user","pass"));
@@ -53,7 +55,8 @@ public class Main extends Application {
 		users.get(3).setAdmin();
 		users.get(2).setAdmin();
 		users.get(1).setUser();
-		/**
+		
+		counter = 1000;
 		Enclosure buris1 = new Enclosure(10,"Putni",AnimalType.BIRD);
 		Enclosure buris2 = new Enclosure(5,"Zivis",AnimalType.FISH);
 		Enclosure buris3 = new Enclosure(3,"Lapsas",AnimalType.MAMMAL);
@@ -68,9 +71,11 @@ public class Main extends Application {
 		enclosures.add(buris2);
 		enclosures.add(buris3);
 		**/
+		loadCounter();
 		loadUsers();
 		loadEnclosures();
 		launch(args);
+		saveCounter();
 		saveEnclosures();
 		saveUsers();
 	}
@@ -123,5 +128,18 @@ public class Main extends Application {
 		ObjectOutputStream oos = new ObjectOutputStream(fos);
 		oos.writeObject(users);
 		oos.close();
+	}
+	public static void saveCounter() throws IOException {
+		FileOutputStream fos = new FileOutputStream("counter.tmp");
+		ObjectOutputStream oos = new ObjectOutputStream(fos);
+		oos.writeObject(counter);
+		oos.close();
+	}
+	
+	public static void loadCounter() throws ClassNotFoundException, IOException {
+		FileInputStream fis = new FileInputStream("counter.tmp");
+		ObjectInputStream ois = new ObjectInputStream(fis);
+		counter = (Integer) ois.readObject();
+		ois.close();
 	}
 }

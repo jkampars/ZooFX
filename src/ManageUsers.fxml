@@ -32,7 +32,8 @@
               </items>
             </SplitPane>
             <Button fx:id="butGrantAdmin" layoutX="518.0" layoutY="276.0" mnemonicParsing="false" onAction="#GrantAdmin" prefHeight="25.0" prefWidth="131.0" text="Grant admin status" />
-            <Button fx:id="butRemoveAdmin" layoutX="518.0" layoutY="317.0" mnemonicParsing="false" onAction="#RemoveAdmin" prefHeight="25.0" prefWidth="131.0" text="Remove admin status" />
+            <Button fx:id="butRemoveAdmin" layoutX="518.0" layoutY="317.0" mnemonicParsing="false" onAction="#RemoveAdmin" prefHeight="25.0" prefWidth="131.0" text="Grant user status" />
+            <Button fx:id="butNoUser" layoutX="518.0" layoutY="361.0" mnemonicParsing="false" onAction="#makeNoUser" prefHeight="25.0" prefWidth="131.0" text="Remove user access" />
          </children>
       </AnchorPane>
    </children>

@@ -4,11 +4,12 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
+import application.Main;
+
 public class Enclosure implements Serializable{
 	private int id;
 	private int MAX_CAPACITY;
 	private ArrayList<Animal> animals = new ArrayList<>();
-	public static int counter = 1000;
 	private String name;
 	private AnimalType type;
 	
@@ -75,16 +76,16 @@ public class Enclosure implements Serializable{
 	}
 	
 	public Enclosure() {
-		counter++;
-		id = counter + 1;
+		Main.counter++;
+		id = Main.counter;
 		name = "";
 		MAX_CAPACITY = 0;
 		type = AnimalType.NONE;
 	}
 	
 	public Enclosure(int mAX_CAPACITY, String name, AnimalType type) {
-		counter++;
-		id = counter + 1;
+		Main.counter++;
+		id = Main.counter;
 		setMAX_CAPACITY(mAX_CAPACITY);
 		setName(name);
 		setType(type);

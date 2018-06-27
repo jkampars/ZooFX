@@ -11,13 +11,17 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
+import javafx.scene.control.Alert.AlertType;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import model.Animal;
 import model.Enclosure;
 import model.User;
+import model.UserType;
 
 public class ManageUsersController extends Main implements Initializable{
 	
@@ -39,6 +43,9 @@ public class ManageUsersController extends Main implements Initializable{
 	@FXML  
 	private Button butRemoveAdmin;
 	
+	@FXML
+	private Button butMakeNoUser;
+	
 	@FXML  
 	private Text txtUsername;
 	
@@ -48,10 +55,10 @@ public class ManageUsersController extends Main implements Initializable{
 	@FXML  
 	private ListView listUsers;
 	
-	public void selectUser(ActionEvent event) {
+	public void selectUser(MouseEvent event) {
 		User selected = (User) listUsers.getSelectionModel().getSelectedItem();
 		txtUsername.setText(selected.getUsername());
-		txtType.setText(selected.getUserType().name());
+		txtType.setText(selected.getUserType().toString());
 	}
 	
 	public void Logout(ActionEvent event) throws IOException { 
@@ -79,17 +86,55 @@ public class ManageUsersController extends Main implements Initializable{
 	}
 
 	public void RemoveUser(ActionEvent event) {
-		
+		User selected = (User) listUsers.getSelectionModel().getSelectedItem();
+		users.remove(selected);
+		txtUsername.setText("");
+		txtType.setText("");
+		listUsers.getItems().clear();
+		listUsers.getItems().addAll(users);
 	}
 	
 	public void GrantAdmin(ActionEvent event) {
-		
+		User selected = (User) listUsers.getSelectionModel().getSelectedItem();
+		if (currentUser==selected) {
+			Alert alert = new Alert(AlertType.ERROR);
+            alert.setTitle("Can't change your own status");
+            alert.setHeaderText("You cannot change your own user type");
+            alert.show();
+		}
+		else {
+			selected.setAdmin();
+			txtType.setText(selected.getUserType().toString());
+		}
 	}
 
 	public void RemoveAdmin(ActionEvent event) {
-		
+		User selected = (User) listUsers.getSelectionModel().getSelectedItem();
+		if (currentUser==selected) {
+			Alert alert = new Alert(AlertType.ERROR);
+            alert.setTitle("Can't change your own status");
+            alert.setHeaderText("You cannot change your own user type");
+            alert.show();
+		}
+		else {
+			selected.setUser();
+			txtType.setText(selected.getUserType().toString());
+		}
 	}
 	
+	public void makeNoUser(ActionEvent event) {
+		User selected = (User) listUsers.getSelectionModel().getSelectedItem();
+		if (currentUser==selected) {
+			Alert alert = new Alert(AlertType.ERROR);
+            alert.setTitle("Can't change your own status");
+            alert.setHeaderText("You cannot change your own user type");
+            alert.show();
+		}
+		else {
+			selected.setUserType(UserType.NOUSER);
+			txtType.setText(selected.getUserType().toString());
+		}
+	}
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		// TODO Auto-generated method stub

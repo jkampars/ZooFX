@@ -19,14 +19,14 @@ public class User implements Serializable{
 		type = UserType.NOUSER;
 	}
 	
-	public boolean checkUsername(String name) {
+	public static boolean checkUsername(String name) {
 		if (name.matches("[a-zA-Z0-9]*")) 
 			return true;
 		else 
 			return false;
 	}
 	
-	public boolean checkPassword(String pass) {
+	public static boolean checkPassword(String pass) {
 		if (pass.matches("[a-zA-Z0-9]*")) {
 			return true;
 		}
@@ -66,7 +66,11 @@ public class User implements Serializable{
 		return type;
 	}
 	
-	/*public String toString() {
+	public String toString() {
 		return username;
-	}*/
+	}
+	
+	public void setUserType(UserType type) {
+		this.type = type;
+	}
 }

@@ -12,7 +12,6 @@ public class Animal extends Main implements Serializable{
 	private String name;
 	private AnimalType type;
 	private ArrayList<Diet> diet = new ArrayList();
-	private static int counter = 1000;
 	
 	private Date dateAdded;
 	
@@ -38,7 +37,7 @@ public class Animal extends Main implements Serializable{
 	}
 	public Animal() {
 		name="";
-		counter++;
+		Main.counter++;
 		ID = counter;
 		type=AnimalType.NONE;
 		dateAdded = new Date();
@@ -46,7 +45,7 @@ public class Animal extends Main implements Serializable{
 	public Animal(String name, AnimalType type) {
 		setName(name);
 		setType(type);
-		counter++;
+		Main.counter++;
 		ID = counter;
 		dateAdded = new Date();
 	}
