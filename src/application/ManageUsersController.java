@@ -1,17 +1,25 @@
 package application;
 
 import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import model.Animal;
+import model.Enclosure;
+import model.User;
 
-public class ManageUsersController {
+public class ManageUsersController extends Main implements Initializable{
 	
 	@FXML  
 	private Button butLogout;
@@ -38,13 +46,12 @@ public class ManageUsersController {
 	private Text txtType;
 	
 	@FXML  
-	private Text txtID;
-	
-	@FXML  
 	private ListView listUsers;
 	
 	public void selectUser(ActionEvent event) {
-		
+		User selected = (User) listUsers.getSelectionModel().getSelectedItem();
+		txtUsername.setText(selected.getUsername());
+		txtType.setText(selected.getUserType().name());
 	}
 	
 	public void Logout(ActionEvent event) throws IOException { 
@@ -81,5 +88,12 @@ public class ManageUsersController {
 
 	public void RemoveAdmin(ActionEvent event) {
 		
+	}
+	
+	@Override
+	public void initialize(URL arg0, ResourceBundle arg1) {
+		// TODO Auto-generated method stub
+		ObservableList<User> obslist = FXCollections.observableArrayList(users);
+		listUsers.setItems(obslist);
 	}
 }

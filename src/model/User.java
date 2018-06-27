@@ -65,4 +65,8 @@ public class User implements Serializable{
 	public UserType getUserType() {
 		return type;
 	}
+	
+	/*public String toString() {
+		return username;
+	}*/
 }
