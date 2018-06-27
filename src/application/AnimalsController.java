@@ -88,11 +88,7 @@ public class AnimalsController extends Main implements Initializable{
 	
 	public void EditAnimal(ActionEvent event) throws IOException {
 		Animal animal = (Animal) listAnimals.getSelectionModel().getSelectedItem();
-		for(int i = 0; i < enclosures.size(); i++) {
-			if (enclosures.get(i).getAnimals().contains(animal)) {
-				int index = i;
-			}
-		}
+		
 		if (listAnimals.getSelectionModel().getSelectedItem()!=null) {
 			FXMLLoader loader =  new FXMLLoader(getClass().getResource("/EditAnimal.fxml"));// create and load() view
 			loader.load();
